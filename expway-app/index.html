@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<!-- EXPWAY eMBMS TEST APPLICATION -->
+<!-- (c) Copyright 2017-2018 EXPWAY -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>EXPWAY - eMBMS</title>
+    <meta name="description" content="EXPWAY eMBMS Test application" />
+    <meta name="author" content="EXPWAY" />
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1" />
+
+    <link rel="manifest" href="manifest.webapp" />
+
+    <script src="obj_util.js"></script>
+
+    <!-- TV dongle API -->
+    <script src="innopia_dial.min.js" defer></script>
+
+    <!-- eMBMS middleware API -->
+    <script src="embms_mw.js" defer></script>
+
+    <!-- Test application messages -->
+    <script src="messages.js"></script>
+    <script src="message_manager.js"></script>
+
+    <!-- Test application functions -->
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js" defer></script>
+
+    <!-- Utilities for DOM nodes -->
+    <script src="domgen.js"></script>
+
+    <!-- UI components -->
+    <link rel="stylesheet" href="uicomponents.css" />
+    <script src="uicomponents.js"></script>
+
+    <!-- UI screens -->
+    <script src="uiscreens.js"></script>
+
+    <!-- File type manager -->
+    <script src="filetypes.js"></script>
+
+    <!-- Video player manager -->
+    <link rel="stylesheet" href="videoplayer.css" />
+    <script src="js/dash.all.debug.ew.js"></script>
+    <script src="videoplayer.js"></script>
+
+</head>
+
+<body>
+
+    <div class="video_bg">
+        <div id="app_title" class="title_overlay">
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="width:24px;"><img class="app_icon" src="images/EW-eMBMS-128.png" /></td>
+                        <td><span id="screen_title">EXPWAY eMBMS Test application</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="load_screen" class="load_screen">Loading service list...</div>
+        <div id="dongle_screen" class="dongle_screen">Connecting...</div>
+        <div id="overlay_top" class="video_overlay" style="left:0px; top:0px;"><span id="title" style="vertical-align: middle;"></span></div>
+        <div id="lteb_status" class="lteb_status"><img id="lteb_status_image" src="images/lteb_out.png" /></div>
+        <div id="tv_status" class="tv_status"><img id="tv_status_image" src="images/video_fp_only.png" /></div>
+        <div id="list" class="list"></div>
+        <div id="notify_msg" class="notify_msg">Please wait...</div>
+        <div id="item_info" class="item_info"></div>
+        <div id="action_list" class="action_list"><span id="action_list_title">Select action:</span><br />
+            <span class="action" id="action_download">Download</span>
+            <span class="action" id="action_view">View</span>
+            <span class="action" id="action_delete">Delete</span>
+        </div>
+        <div id="overlay_bottom" class="video_overlay" style="left:0px; bottom:0px;">
+            <table style="width:100%;">
+                <tbody>
+                    <tr>
+                        <td style="width:15%;">
+                            <div id="c_position">&nbsp;00:00:00&nbsp;</div>
+                        </td>
+                        <td style="width:70%;">
+                            <div id="c_posbar"></div>
+                        </td>
+                        <td style="width:15%;">
+                            <div id="c_total">&nbsp;00:00:00&nbsp;</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <video id="vplayer">ERROR: HTML5 video not supported.</video>
+        <audio id="aplayer">ERROR: HTML5 audio not supported.</audio>
+        <div class="centerframe"><img id="iplayer" src="images/EW-eMBMS-512.png" class="media_image" /></div>
+    </div>
+
+</body>
+<!-- (c) Copyright 2017-2018 EXPWAY -->
+
+</html>

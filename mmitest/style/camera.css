@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+#viewfinder {
+  position: absolute;
+  z-index: 25;
+}
+
+#centertext {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  z-index: 24;
+}
+
+#captureButton {
+  position: absolute;
+  font-size: 18px;
+  top: -moz-calc(100% - 34px - 34px - 12px);
+  width: -moz-calc(100% - 20px);
+  height: 34px;
+  left: 10px;
+}

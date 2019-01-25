@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <title>Auto Test</title>
+
+  <link rel="stylesheet" type="text/css" href="../shared/style/navigation.css"/>
+  <link rel="stylesheet" type="text/css" href="../shared/elements/gaia-theme/gaia-font.css">
+  <link rel="stylesheet" type="text/css" href="../shared/elements/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" type="text/css" href="../shared/elements/gaia-theme/gaia-theme.css">
+  <link rel="stylesheet" type="text/css" href="../style/theme.css"/>
+  <link rel="stylesheet" type="text/css" href="../style/auto.css"/>
+  <link rel="stylesheet" type="text/css" href="../style/testitem.css"/>
+  <link rel="resource" type="application/json" href="../resource/config.json"/>
+
+  <script defer src="../shared/js/toaster.js"></script>
+  <script defer src="../shared/js/component_utils.js"></script>
+  <script defer src="../shared/elements/gaia-header/dist/gaia-header.js"></script>
+  <script defer src="../shared/js/async_storage.js"></script>
+  <script defer src="../js/remote_helper.js" ></script>
+  <script defer src="../js/auto.js"></script>
+</head>
+
+<body class="theme-mmitest">
+<div id="main-panel" class="panel">
+  <gaia-header><h1>Auto Test</h1></gaia-header>
+  <div id="centertext">Not test yet</div>
+  <button class="buttons" id="autoStartButton">Start</button>
+  <button class="buttons" id="autoEndButton">End</button>
+  <input id="retestButton" type="button" value="Retest"/>
+</div>
+<div id="test-panel" class="panel hidden">
+  <iframe id="test-iframe"></iframe>
+</div>
+<div id="result-screen" class="panel hidden">
+  <gaia-header><h1>AUTO TEST RESULT</h1></gaia-header>
+  <div id="result-text"></div>
+  <button type="button" class="buttons" id="restartYes">Start</button>
+  <button type="button" class="buttons" id="restartNo">Back</button>
+</div>
+</body>
+</html>

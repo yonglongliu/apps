@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <meta name="theme-color" content="transparent">
+  <title>MMI Test</title>
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-font.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-theme.css">
+  <link rel="stylesheet" type="text/css" href="style/autoslt.css"/>
+  <link rel="stylesheet" type="text/css" href="style/theme.css"/>
+
+  <script defer src="shared/js/component_utils.js"></script>
+  <script defer src="shared/elements/gaia-header/dist/gaia-header.js"></script>
+  <script src="../shared/js/async_storage.js"></script>
+  <script defer src="js/remote_helper.js" ></script>
+  <script defer src="js/qrcode.js" ></script>
+  <script defer src="js/bluetooth.js" ></script>
+  <script defer src="js/wifi.js" ></script>
+  <script defer src="js/fm.js" ></script>
+  <script defer src="js/gps.js" ></script>
+  <script defer src="js/recorder.js" ></script>
+  <script defer src="js/orientation.js" ></script>
+
+  <script defer src="js/commander.js" ></script>
+  <script defer src="js/autoslt.js" ></script>
+
+</head>
+<body class="theme-mmitest">
+<div id="main-panel" class="panel">
+  <div id="topView">
+    <button class="buttons" id="resetButton">Factory Reset</button>
+    <label id="appVersion">V 0.0.1</label>
+  </div>
+  <div id="contentView" class="content focus">
+    <label id="allResult">站位总结果</label>
+    <ul>
+      <li>Station</li>
+      <li>Result</li>
+
+      <li>MMI</li>
+      <li id="MMI_ID">NT</li>
+
+      <li>Vision</li>
+      <li id="Vision_ID">NT</li>
+
+      <li>Audio</li>
+      <li id="Audio_ID">NT</li>
+
+      <li>Antenna</li>
+      <li id="Antenna_ID">NT</li>
+
+      <li>WCN</li>
+      <li id="WCN_ID">NT</li>
+    </ul>
+
+    <label id="SN"></label>
+
+    <div id="qrcode">
+    </div>
+
+    <label id="note"></label>
+  </div>
+
+  <audio id="audio-element-id" style="display: none;"></audio>
+
+  <button class="buttons" id="resultButton" disabled="disabled">Get Result</button>
+  <button class="buttons" id="manuButton" disabled="disabled">Manual test</button>
+</div>
+
+<div id="test-panel" class="panel hidden">
+  <iframe id="test-iframe"></iframe>
+</div>
+
+</body>
+</html>

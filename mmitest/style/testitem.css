@@ -1,0 +1,245 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  color: white;
+  overflow: hidden;
+  font-size: 10px;
+}
+
+.result-pass {
+  color: green;
+}
+
+.result-fail {
+  color: red;
+}
+
+.result-notest {
+  color: white;
+}
+
+.test-container {
+  position: absolute;
+  height: calc(100% - 48px);
+  width: 100%;
+  top: 48px;
+  font-size: 1.7rem;
+  overflow: hidden;
+}
+
+.test-container > p {
+  margin: 0;
+  padding: 0;
+}
+
+/***Title***/
+/*title area height is 64px*/
+#title {
+  position: absolute;
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  top: 0;
+  font-size: 22px;
+  overflow: hidden;
+}
+
+/***Content(except title and button)***/
+#content {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 90px);
+  top: 48px;
+  overflow: scroll;
+  font-size: 1.7rem;
+}
+
+/*center text*/
+#centertext {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  top: -moz-calc(50% - 50px);
+  font-size: 1.7rem;
+}
+
+/*gps center text*/
+#gpscentertext {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: scroll;
+  font-size: 1.7rem;
+}
+
+/*NXP text*/
+#nxptext {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  top: -moz-calc(50% + 10px);
+  font-size: 1.7rem;
+}
+
+/*NXP test result*/
+#test_result {
+  position: absolute;
+  top: -moz-calc(100% - 34px - 34px - 50px);
+  width: 100%;
+  height:50px;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+/***Buttons***/
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+button,
+input[type="button"] {
+  background-color:transparent;
+  color: #000;
+  outline: none;
+
+}
+button:active,
+input[type="button"]:active {
+  background: #008aaa;
+  color: #333;
+  outline: none;
+}
+button[disabled],
+input[type="button"][disabled] {
+  background: #5f5f5f;
+  color: #4d4d4d;
+}
+
+#retestButton {
+  position: absolute;
+  font-size: 22px;
+  top: -moz-calc(100% - 34px - 34px - 12px);
+  width: -moz-calc(100% - 20px);
+  height: 34px;
+  left: 10px;
+}
+
+#dialButton {
+  position: absolute;
+  font-size: 22px;
+  top: -moz-calc(100% - 34px - 34px - 12px);
+  width: -moz-calc(100% - 20px);
+  height: 34px;
+  left: 10px;
+}
+
+/*button area height is 64px*/
+.buttons {
+  position: absolute;
+  font-size: 22px;
+  top: -moz-calc(100% - 45px + 5px); /*gap is 5px*/
+  width: -moz-calc(50% - 15px);
+  height: 35px; /*45px - (5px)*2*/
+
+  z-index: 50;
+}
+
+#trace-info {
+  font-size: 17px;
+  overflow: scroll;
+  outline: none;
+  height: 100%;
+}
+
+#test-result-content {
+  overflow: scroll;
+  outline: none;
+  height: 100%;
+}
+
+#test-result-content > p {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.rtc-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.7rem;
+}
+
+#bt-content {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 90px);
+  top: 48px;
+  overflow: hidden;
+  font-size: 1.7rem;
+}
+
+#bt-content,
+#bt-content > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#restartYes,
+#autoStartButton,
+#passButton {
+  left: 10px;
+}
+
+#restartNo,
+#autoEndButton,
+#failButton {
+  right: 10px;
+}
+
+#okButton {
+  width: 100% !important;
+}
+
+#headsetkey {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  text-align: center;
+  font-size: 1.7rem;
+  top: -moz-calc(50% + 50px);
+}
+
+
+#emmc-id {
+  width:200px;
+  word-break:break-all;
+  word-wrap:break-word;
+}
+#audio-id {
+  width:200px;
+  word-break:break-all;
+  word-wrap:break-word;
+}
+#ddr-id {
+  width:200px;
+  word-break:break-all;
+  word-wrap:break-word;
+}

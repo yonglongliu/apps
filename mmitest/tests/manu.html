@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <title>manu tests</title>
+  <link rel="resource" type="application/json" href="../resource/config.json"/>
+
+  <link rel="stylesheet" type="text/css" href="../shared/style/navigation.css"/>
+  <link rel="stylesheet" type="text/css" href="../shared/elements/gaia-theme/gaia-font.css">
+  <link rel="stylesheet" type="text/css" href="../shared/elements/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" type="text/css" href="../shared/elements/gaia-theme/gaia-theme.css">
+  <link rel="stylesheet" type="text/css" href="../style/manu.css"/>
+  <link rel="stylesheet" type="text/css" href="../style/theme.css"/>
+
+  <script defer src="../shared/js/component_utils.js"></script>
+  <script defer src="../shared/elements/gaia-header/dist/gaia-header.js"></script>
+  <script defer src="../shared/js/async_storage.js"></script>
+  <script defer src="../js/simple-navigation-helper.js"></script>
+  <script defer src="../js/result_manager.js"></script>
+  <script defer src="../js/remote_helper.js" ></script>
+  <script defer src="../js/manu.js"></script>
+</head>
+<body class="theme-mmitest">
+  <div id="manu-panel" class="panel">
+    <gaia-header><h1>Manual Tests</h1></gaia-header>
+    <div id="manuList" class="content" tabindex="1">
+    </div>
+  </div>
+
+  <div id="test-panel" class="panel hidden">
+    <iframe id="test-iframe" mozallowfullscreen="true"></iframe>
+  </div>
+</body>
+</html>

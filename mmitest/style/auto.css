@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  color: white;
+  overflow: hidden;
+  font-size: 10px;
+}
+
+.panel {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -moz-transition: -moz-transform 0.3s ease;
+  top: 0;
+}
+
+#test-iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+/*****(1)*****/
+/*
+*body.test .panel
+* CSS Nested (descendant) selectors, in this example, take effect when body has class "test"
+*/
+
+#result-text {
+  height: calc(100% - 70px);
+  overflow: scroll;
+}
+
+#result-text p {
+  margin: 0;
+  padding: 0 1rem;;
+  font-size: 1.7rem;
+}
+
+#result-text p.false {
+  color: red;
+}

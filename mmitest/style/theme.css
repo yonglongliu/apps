@@ -1,0 +1,32 @@
+.theme-mmitest {
+
+  /** Background
+   ---------------------------------------------------------*/
+
+  --background: #300b24;
+  --background-title: #2b061f;
+  --background-plus: var(--color-beta);
+  --background-minus: var(--color-epsilon);
+  --background-minus-minus: var(--color-zeta);
+
+  /** Highlight
+   ---------------------------------------------------------*/
+
+  --highlight-color: #ce650f;
+  --highlight-color-pressed: var(--color-theta);
+
+
+  /** Titles
+   ---------------------------------------------------------*/
+
+  --title-color: var(--background-minus);
+
+  /** Header
+   ---------------------------------------------------------*/
+
+  --header-color: var(--title-color);
+  --header-background: var(--background-title);
+  --header-button-color: var(--highlight-color);
+  --header-disabled-button-color: var(--color-theta);
+  --header-action-button-color: var(--title-color);
+}

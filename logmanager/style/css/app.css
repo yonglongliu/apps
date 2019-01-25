@@ -1,0 +1,203 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.disabled {
+  background: #cccccc;
+  opacity: 0.5;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul > li {
+  height: 6rem;
+  overflow: hidden;
+}
+
+ul > li > p {
+  line-height: 6rem;
+  margin: 0 1rem;
+  width: 100%;
+}
+
+li:focus {
+  background-color: var(--highlight-color);
+  color: var(--color-gs00);
+}
+
+header {
+  font-size: 1.4rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  color: var(--color-gs70);
+  background-color: var(--color-gs10);
+  padding: 0 1rem;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+section[role="region"] {
+  position: absolute;
+  top: var(--statusbar-height);
+  width: 100%;
+  height: calc(100% - var(--statusbar-height));
+  visibility: hidden;
+  transform: translateX(+100%);
+  transition: transform .4s ease, visibility .4s ease;
+  overflow: hidden;
+}
+
+section.current[role="region"] {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+section.previous[role="region"] {
+  transform: translateX(-100%);
+}
+
+.text-container {
+  overflow: scroll;
+}
+
+.text-area {
+  font-size: 1.4rem;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.button-li {
+  margin: 0.5rem 1rem;
+  height: 3.2rem;
+  text-align: center;
+  background-color: var(--color-gs20);
+  color: var(--color-gs90);
+  overflow: hidden;
+}
+
+.button-li-container{
+  text-align: center;
+  line-height: 3.2rem;
+}
+
+.pack-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 1rem;
+}
+
+label.pack-checkbox input {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 0;
+}
+
+label.pack-checkbox input ~ span {
+  line-height: 6rem;
+  width: 100%;
+}
+
+label.pack-checkbox input ~ span::after {
+  width: 3.2rem;
+  height: 3.2rem;
+  font-family: "gaia-icons";
+  font-size: 3.2rem;
+  color: var(--color-gs45);
+  content: "check-off";
+  position: absolute;
+  right: 1rem;
+}
+
+label.pack-checkbox input:checked ~ span::after {
+  content: "check-on";
+}
+
+li:focus label.pack-checkbox input ~ span::after {
+  color: var(--color-gs00);
+}
+
+li#clean-logs label {
+  display: block;
+  line-height: 2.8rem;
+  padding: 0 1rem;
+}
+
+li#clean-logs label span {
+  font-size: 1.3rem;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.select-li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.select-li > p {
+  line-height: 1;
+  margin-left: 1rem;
+  width: auto;
+}
+
+.select-li > span {
+  margin: 1rem 1rem 1rem 0;
+  width: auto;
+}
+
+div.content-list {
+  padding: 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+#hidebg { position:absolute;left:0px;top:0px;
+      background-color:#000;
+      width:100%;
+      height: 100%;
+      filter:alpha(opacity=60);
+      opacity:0.6;
+      display:block;
+      z-Index:2;
+}

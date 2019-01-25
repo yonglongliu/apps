@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+  <meta name="theme-color" content="#20407b">
+  <!--CSS-->
+  <link rel="stylesheet" href="style/css/app.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-font.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-theme.css">
+
+  <!--JavaScript-->
+  <script defer src="shared/js/component_utils.js"></script>
+  <script defer src="shared/elements/gaia-header/dist/gaia-header.js"></script>
+  <script defer src="shared/js/toaster.js"></script>
+  <script defer src="js/lazy_loader.js"></script>
+  <script defer src="js/simple-navigation-helper.js"></script>
+  <script defer src="js/commands.js"></script>
+  <script defer src="js/page.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/startup.js"></script>
+
+  <!--LazyLoader JS-->
+  <!--<script defer src="js/remote_helper.js"></script>-->
+  <!--<script defer src="js/app.js"></script>-->
+  <!--<script defer src="js/states.js"></script>-->
+  <!--<script defer src="js/commander.js"></script>-->
+  <!--<script defer src="js/view_log_settings.js"></script>-->
+  <!--<script defer src="js/view_log_settings_ap.js"></script>-->
+  <!--<script defer src="js/view_log_settings_modem.js"></script>-->
+</head>
+
+<body class="theme-settings">
+<div id="hidebg"></div>
+<section id="log-settings" class="current" role="region">
+  <gaia-header><h1>Log Manager</h1></gaia-header>
+  <div id="log-settings-content" class="nav-container" tabindex="0">
+    <ul>
+      <li id="adb_debug_set" class="focusable" tabindex="1">
+        <p>Adb Debug</p>
+      </li>
+    </ul>
+  <ul id="slog_switch_list">
+    <li id="menuItem-logManager" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="log-switch" type="checkbox"/>
+          <span class="label-span">Log Switch</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  <header>AP Log</header>
+  <ul id="ap_log_list">
+    <li id="menuItem-ap" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="ap-switch" type="checkbox"/>
+          <span class="label-span">AP Log</span>
+        </label>
+      </div>
+    </li>
+    <li id="ap-settings" class="focusable" tabindex="1">
+      <p>AP Log Settings</p>
+    </li>
+  </ul>
+  <header>Modem Log</header>
+  <ul id="modem_log_list">
+    <li id="menuItem-modem" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="modem-switch" type="checkbox"/>
+          <span class="label-span">Modem Log</span>
+        </label>
+      </div>
+    </li>
+    <li id="modem-settings" class="focusable" tabindex="1">
+      <p>Modem Log Settings</p>
+    </li>
+  </ul>
+  <header>CAP Log</header>
+  <ul id="cap_log_list">
+
+    <li id="menuItem-cap" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="cap-switch" type="checkbox"/>
+          <span class="label-span">Cap Log</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+
+  <header>Clear</header>
+  <ul>
+    <li id="clean-logs" class="focusable" tabindex="1">
+      <label>Clean all logs</label>
+      <label>
+        <span id="used" class="left"></span>
+        <span id="total" class="right"></span>
+      </label>
+    </li>
+  </ul>
+  </div>
+</section>
+<section id="adb-debug-setting" role="region">
+  <gaia-header><h1>ADB Debug</h1></gaia-header>
+  <div id="adb-debug-setting-content" tabindex="0" class="nav-container">
+  <ul>
+    <li id="menuItem-adb-debug" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="adb-debug" type="checkbox"/>
+          <span class="label-span">Adb Debug</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  </div>
+</section>
+<section id="log-settings-ap" role="region">
+  <gaia-header><h1>AP Log Settings</h1></gaia-header>
+  <div id="log-settings-ap-content" tabindex="0" class="nav-container">
+  <ul>
+    <li id="ap-tcpip-log" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="ap-tcpip-log-switch" type="checkbox"/>
+          <span class="label-span">TCP/IP log</span>
+        </label>
+      </div>
+    </li>
+
+    <li id="ap-bt-hci-log" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="ap-bt-hci-log-switch" type="checkbox"/>
+          <span class="label-span">BT HCI log</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  </div>
+</section>
+
+<section id="log-settings-modem" role="region">
+  <gaia-header><h1>Modem Log Settings</h1></gaia-header>
+  <div id="log-settings-modem-content" tabindex="0" class="nav-container">
+  <ul role="menu">
+    <li id="menuItem-modem-to-pc" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="modem-to-pc-switch" type="checkbox"/>
+          <span class="label-span">Modem to PC</span>
+        </label>
+      </div>
+    </li>
+    <li id="menuItem-wcn" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="wcn-switch" type="checkbox"/>
+          <span class="label-span">WCN log</span>
+        </label>
+      </div>
+    </li>
+    <li id="menuItem-dump-wcn" class="focusable" tabindex="1">
+      <p class="label-span">Dump WCN Memory</p>
+    </li>
+    <li id="menuItem-gnss" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="gnss-switch" type="checkbox"/>
+          <span class="label-span">GNSS log</span>
+        </label>
+      </div>
+    </li>
+    <li id="menuItem-pcm" class="focusable" tabindex="1">
+      <div>
+        <label class="pack-checkbox">
+          <input id="pcm-switch" type="checkbox"/>
+          <span class="label-span">PCM log</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  </div>
+</section>
+</body>
+</html>

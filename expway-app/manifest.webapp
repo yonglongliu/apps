@@ -1,0 +1,33 @@
+{
+	"name": "EXPWAY eMBMS Test",
+	"description": "EXPWAY eMBMS test application",
+	"version":"1.0",
+	"launch_path": "/index.html",
+	"icons": {
+		"512": "/images/EW-eMBMS-512.png",
+		"128": "/images/EW-eMBMS-128.png"
+	},
+	"developer": {
+		"name": "EXPWAY",
+		"url": "http://www.expway.com"
+	},
+	"default_locale": "en",
+	"fullscreen": "true",
+	"orientation":"portrait",
+	"locales" : {
+		"fr" : {
+			"name": "Test eMBMS EXPWAY",
+			"description": "Application de test eMBMS EXPWAY"
+		}
+	},
+	"type": "certified",
+	"permissions":
+	{
+		"systemXHR":     { "description": "Used for Dial implementation." },
+		"udp-socket":    { "description": "Used for Dial implementation." },
+		"tcp-socket":    { "description": "Used for DialPlayer implementation." },
+		"donglemanager": { "description": "Used for the local IP address." },
+		"settings":      { "access": "readwrite" },
+		"ltebroadcast":  { "description": "WebIDL for LTE broadcast" }
+	}
+}

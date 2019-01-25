@@ -1,0 +1,54 @@
+{
+  "fullscreen": true,
+  "name": "MMI Test",
+  "role": "system",
+  "user": "engineer",
+  "default_locale": "en-US",
+  "icons": {
+    "84": "/style/icons/settings_84.png"
+  },
+  "orientation": "portrait-primary",
+  "description": "MMI Test",
+  "launch_path": "/index.html",
+  "activities": {
+    "mmitest": {
+      "returnValue": false,
+      "disposition": "window"
+    }
+  },
+  "type": "certified",
+  "permissions": {
+    "geolocation-noprompt": {},
+    "device-storage:pictures": {
+      "access": "readonly"
+    },
+    "device-storage:sdcard": {
+      "access": "readwrite"
+    },
+    "jrdextension": {},
+    "power": {},
+    "wifi-manage": {},
+    "settings": {
+      "access": "readwrite"
+    },
+    "nfc": {},
+    "bluetooth": {},
+    "telephony": {},
+    "camera": {},
+    "fmradio": {},
+    "mobileconnection": {},
+    "audio-channel-content": {},
+    "flashlight":{},
+    "mmi-test": {}
+  },
+  "locales": {
+    "en-US": {
+      "name": "MMI Test",
+      "description": "MMI Test"
+    }
+  },
+  "developer": {
+    "url": "https://github.com/mozilla-b2g/gaia",
+    "name": "The Gaia Team"
+  }
+}

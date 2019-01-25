@@ -1,0 +1,85 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+
+#resultView.focus {
+  background-color: white !important;
+}
+
+ul {
+  width: 100%;
+  height: -moz-calc(100% - 60px);
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+ul li {
+  height: 30px;
+  font-size: 15px;
+  float: left;
+  left: -15%;
+  white-space: nowrap;
+  /*display: block;*/
+  position: relative;
+  list-style-type:none;
+  color: black;
+}
+
+ul li.idLi {
+  width:10%;
+  border-top: 1px solid #000000;
+
+}
+
+ul li.resultLi {
+  width:25%;
+  border-top: 1px solid #000000;
+
+}
+
+ul li.caseLi {
+  width:65%;
+  border-top: 1px solid #000000;
+
+}
+
+ul li.noteLi {
+  width:100%;
+}
+
+.panel {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /*-moz-transition: -moz-transform 0.3s ease;*/
+  top: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.resultFAIL {
+  color: red !important;
+}
+
+.resultPASS {
+  color: green !important;
+}
+
+.resultNT {
+  color: gray !important;
+}

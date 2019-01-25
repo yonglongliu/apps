@@ -1,0 +1,22 @@
+{
+  "menuItems": [
+    {"itemName": "version-info",   "itemInfo": "Version Info"},
+    {"itemName": "phase-check",    "itemInfo": "Phase Check"},
+    {"itemName": "calibrate-info", "itemInfo": "ADC Calibrate Info"},
+    {"itemName": "forbid-plmn",    "itemInfo": "Forbid PLMN"},
+    {"itemName": "net-info",       "itemInfo": "Net Info"},
+    {"itemName": "para-set",       "itemInfo": "Para Set"},
+    {"itemName": "rf-set",         "itemInfo": "RF Set"},
+    {"itemName": "app-settings",   "itemInfo": "App Settings"},
+    {"itemName": "antenna-settings", "itemInfo": "Antenna Settings"},
+    {"itemName": "sgps",           "itemInfo": "SGPS"},
+    {"itemName": "memtest",        "itemInfo": "MEMTEST"},
+    {"itemName": "flashtest",        "itemInfo": "FLASHTEST"},
+    {"itemName": "reboot",        "itemInfo": "REBOOT"},
+    {"itemName": "factory-reset",  "itemInfo": "FACTORY RESET"},
+    {"itemName": "sleepawake",     "itemInfo": "SLEEPAWAKE"},
+    {"itemName": "mlog",         "itemInfo": "MLOG"},
+    {"itemName": "connectivity",   "itemInfo": "CONNECTIVITY"}
+
+  ]
+}

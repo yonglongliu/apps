@@ -1,0 +1,7 @@
+{
+  "external": true,
+  "installOrigin": "app://kaios-plus.kaiostech.com",
+  "manifestURL": "https://api.kaiostech.com/v2.0/apps/kaiosplus?cu=4044O-2BAQUS1-R",
+  "removable": false,
+  "type": "certified"
+}

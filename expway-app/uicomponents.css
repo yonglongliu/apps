@@ -1,0 +1,242 @@
+/*
+
+==========================
+User Interface Components.
+(c) Copyright 2017 EXPWAY.
+--------------------------
+  uicomponents.js
+  uicomponents.css
+==========================
+
+Requires: domgen.js
+
+*/
+
+/*
+==========================
+Progress bar component.
+==========================
+*/
+
+.progress
+{
+	position:relative;
+	text-align:center;
+	vertical-align:middle;
+	height: 1.5em;
+	border: solid 1px #888888;
+	background-color: #eeeeee;
+	overflow:hidden;
+	z-index:1;
+}
+.progressbar
+{
+	position:absolute;
+	left: 0px;
+	top:0px;
+	height: 1.5em;
+	background-color: #88ff88;
+	border: solid 1px #66cc66;
+	z-index:5;
+}
+.progresstext
+{
+	position:relative;
+	top:0.25em;
+	z-index:10;
+	font-weight: bold;
+}
+
+/*
+==========================
+Scroll bar component.
+==========================
+*/
+
+.scroll
+{
+	position:relative;
+	text-align:center;
+	vertical-align:middle;
+	height: 20px;
+	border: solid 1px #776815;
+	background-color: #F57C2C;
+	overflow:hidden;
+	z-index:1;
+}
+.scrollbar
+{
+	position:absolute;
+	left: 0px;
+	top:0px;
+	height: 12px;
+	background-color: #442200;
+	border: solid 4px #000000;
+	z-index:5;
+}
+
+/*
+==========================
+Video overlay component.
+==========================
+*/
+
+.title_overlay
+{
+	position:absolute; z-index:4;
+	left:0px; top:0px;
+	height:2em; line-height:2em;
+	padding: 0.5em;
+	width:100%;
+	background:white; color:black;
+	text-align: left;
+	font-weight: bold;
+}
+.dongle_screen
+{
+	position:absolute; z-index:2;
+	box-sizing: border-box;
+	left:0px; top:15%;
+	width:100%;
+	height:70%; line-height:1em;
+	margin: auto;
+	padding: 2em;
+	background:#004488; color:white;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 10pt;
+	font-weight: bold;
+}
+.load_screen
+{
+	position:absolute; z-index:3;
+	left:0px; top:15%;
+	height:280px; line-height:1em;
+	margin: auto;
+	width:100%;
+	background:black; color:white;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 12pt;
+}
+.title_overlay table
+{
+	width: 100%;
+}
+.title_overlay img
+{
+	vertical-align: middle;
+}
+
+.video_overlay
+{
+	position:absolute; z-index:1;
+	height:3em; line-height:3em;
+	width:100%;
+	background:#0088ff; color:white;
+	text-align:center;
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0.5s linear, opacity 0.5s linear;
+}
+
+/*
+==========================
+Item list component.
+==========================
+*/
+
+.list
+{
+	position:absolute; margin: auto; padding: 2em 0;
+	width:100%; height:70%; line-height:70%;
+	top:0; left:0; bottom:0; right:0;
+	background:#0088cc; color:white;
+	text-align:center;
+}
+
+.list .itemscontainer
+{
+	/*position:absolute;*/
+	/*margin: 1em 3em 1em 3em;*/
+	width:100%; height:80%; line-height:80%;
+	/*top:0; left:0; bottom:0; right:0;*/
+	overflow-y: hidden;
+}
+
+.list .items
+{
+	background:#8800ff;
+}
+
+.list .title
+{
+	padding: 0.5em;
+	text-align: left;
+}
+
+.list .item
+{
+	padding: 0.5em;
+}
+
+.list .itemselected
+{
+	padding: 0.5em;
+	background:white;
+	color: #8800ff;
+}
+.list .itemselected::before
+{
+	content:"> ";
+}
+.list .itemselected::after
+{
+	content:" <";
+}
+
+.item_info
+{
+	position:absolute; left:0px; right:0px; bottom:0px; z-index:8; width:100%;
+	height:3em; line-height:1.5em;
+	background-color:#446688;
+	color: white;
+	padding: 0.5em;
+	text-align:left;
+	vertical-align:middle;
+	font-weight: bold;
+}
+
+/*
+==========================
+Action list component.
+==========================
+*/
+
+.action_list
+{
+	position:absolute; left:0px; right:0px; bottom:0px; z-index:8; width:100%;
+	height:3em; line-height:1.5em;
+	background-color:#444477;
+	color: white;
+	padding: 0.5em;
+	text-align:left;
+	vertical-align:middle;
+	font-weight: bold;
+}
+.action
+{
+	padding: 0.2em 0.5em;
+}
+.action_off
+{
+	padding: 0.2em 0.5em;
+	color: #999999;
+}
+.action_sel
+{
+	padding: 0.2em 0.5em;
+	background-color: #ffcc77;
+	color: black;
+}
+

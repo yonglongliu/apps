@@ -1,0 +1,86 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+.content {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem 0 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li,
+ul > li {
+  height: 6rem;
+  overflow: hidden;
+}
+
+li > p,
+ul > li > p {
+  line-height: 6rem;
+  margin: 0 1rem;
+  width: 100%;
+}
+
+.text-area {
+  margin: 1rem;
+  font-size: 1.4rem;
+  word-wrap: break-word;
+}
+
+.pack-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+}
+
+label.pack-checkbox input {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 0;
+}
+
+label.pack-checkbox input ~ span {
+  line-height: 6rem;
+  width: 100%;
+}
+
+label.pack-checkbox input ~ span::after {
+  width: 3.2rem;
+  height: 3.2rem;
+  font-family: "gaia-icons";
+  font-size: 3.2rem;
+  color: var(--color-gs45);
+  content: "check-off";
+  position: absolute;
+  right: 1rem;
+}
+
+label.pack-checkbox input:checked ~ span::after {
+  content: "check-on";
+}
+
+.focus label.pack-checkbox input ~ span::after {
+  color: var(--color-gs00);
+}

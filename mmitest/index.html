@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <meta name="theme-color" content="transparent">
+  <title>MMI Test</title>
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-font.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-theme.css">
+  <link rel="stylesheet" type="text/css" href="style/mmitest.css"/>
+  <link rel="stylesheet" type="text/css" href="style/theme.css"/>
+
+  <script defer src="shared/js/component_utils.js"></script>
+  <script defer src="shared/elements/gaia-header/dist/gaia-header.js"></script>
+  <script defer src="js/remote_helper.js" ></script>
+  <script defer src="js/mmitest.js" ></script>
+</head>
+<body class="theme-mmitest">
+  <div id="main-panel" class="panel">
+    <gaia-header><h1>KaiOS MMI Test</h1></gaia-header>
+    <div class="station-content" id="station-data"></div>
+
+    <button class="small-buttons" id="autoButton" disabled="disabled">AUTO</button>
+    <button id="midButton" disabled="disabled">MMI2</button>
+    <button class="small-buttons" id="manuButton" disabled="disabled">MANU</button>
+  </div>
+</body>
+</html>

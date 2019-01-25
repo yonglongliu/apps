@@ -1,0 +1,1828 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+  <meta name="theme-color" content="#20407b">
+  <!--CSS-->
+  <link rel="stylesheet" href="style/css/app.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/style/navigation.css"/>
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-font.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-icons/gaia-icons.css">
+  <link rel="stylesheet" type="text/css" href="shared/elements/gaia-theme/gaia-theme.css">
+
+  <link rel="stylesheet" type="text/css" href="shared/style/toaster.css"/>
+  <script defer src="shared/js/toaster.js"></script>
+  <!--JavaScript-->
+  <script src="shared/js/component_utils.js"></script>
+  <script src="shared/elements/gaia-header/dist/gaia-header.js"></script>
+  <script src="shared/elements/gaia_tabs/script.js"></script>
+  <script defer src="shared/js/toaster.js"></script>
+  <script defer src="js/lazy_loader.js"></script>
+  <script defer src="js/navigation_handler.js"></script>
+  <script defer src="js/navigation_helper.js"></script>
+  <script defer src="js/navigation_map.js"></script>
+  <script defer src="js/app.js"></script>
+  <script defer src="js/item.js"></script>
+  <script defer src="js/version_info.js"></script>
+  <script defer src="js/phase_check.js"></script>
+  <script defer src="js/calibrate_info.js"></script>
+  <script defer src="js/forbid_plmn.js"></script>
+  <script defer src="js/net_info.js"></script>
+  <script defer src="js/para_set.js"></script>
+  <script defer src="js/rf_set.js"></script>
+  <script defer src="js/app_settings.js"></script>
+  <script defer src="js/antenna_settings.js"></script>
+  <script defer src="js/sgps.js"></script>
+  <script defer src="js/memtest.js"></script>
+  <script defer src="js/flashtest.js"></script>
+  <script defer src="js/reboot.js"></script>
+  <script defer src="js/mlog.js"></script>
+  <script defer src="js/factory_reset.js"></script>
+  <script defer src="js/sleepawake.js"></script>
+
+  <!--connectivity-->
+  <script defer src="js/connectivity.js"></script>
+  <script defer src="js/bt/bt.js"></script>
+  <script defer src="js/bt/no_signal.js"></script>
+  <script defer src="js/bt/no_signal_rx.js"></script>
+  <script defer src="js/bt/no_signal_tx.js"></script>
+  <script defer src="js/bt/no_signal_ble_rx.js"></script>
+  <script defer src="js/bt/no_signal_ble_tx.js"></script>
+  <script defer src="js/wifi/wifi.js"></script>
+  <script defer src="js/wifi/wifi_tx.js"></script>
+  <script defer src="js/wifi/wifi_rx.js"></script>
+  <script defer src="js/wifi/wifi_reg_wr.js"></script>
+  <script defer src="js/fm/fm.js"></script>
+  <script defer src="js/fm/fm_test.js"></script>
+
+  <script defer src="js/log/commander.js"></script>
+  <script defer src="js/log/log_settings.js"></script>
+  <script defer src="js/log/log_settings_ap.js"></script>
+  <script defer src="js/log/log_settings_modem.js"></script>
+
+  <!-- Shared Libs -->
+  <script defer src="shared/js/mediadb.js"></script>
+  <script defer src="js/db.js"></script>
+
+  <script type="text/javascript" defer src="shared/js/l10n.js"></script>
+  <script defer src="shared/js/l10n_date.js"></script>
+  <script type="text/javascript" defer src="shared/js/media/media_frame.js"></script>
+  <script defer src="shared/js/media/jpeg_metadata_parser.js"></script>
+  <script type="text/javascript" defer src="shared/js/blobview.js"></script>
+  <script type="text/javascript" defer src="shared/js/media/image_size.js"></script>
+  <script type="text/javascript" defer src="shared/js/media/downsample.js"></script>
+</head>
+
+<body class="theme-settings">
+<section id="root" class="current" role="region">
+  <gaia-header><h1>Engmode</h1></gaia-header>
+  <div class="content">
+    <ul id="home-menu"></ul>
+  </div>
+</section>
+
+<section id="version-info" role="region">
+  <gaia-header><h1>Version Info</h1></gaia-header>
+  <div class="text-container">
+    <div id="version-info-result" tabindex="0">
+      <label>AP INFO</label>
+      <div>
+        <label>AP version</label>
+        <span id="ap-version">xxx</span>
+      </div>
+      <label>CP INFO</label>
+      <div>
+        <label>Modem Version</label>
+        <span id="modem-version">xxx</span>
+        <label>PS Version</label>
+        <span id="ps-version">xxx</span>
+        <label>GSM DSP Version</label>
+        <span id="gsm-dsp-version">xxx</span>
+        <label>TD DSP Version</label>
+        <span id="td-dsp-version">xxx</span>
+        <label>WCDMA DSP Version</label>
+        <span id="wcdma-dsp-version">xxx</span>
+        <label>LTE DSP Version</label>
+        <span id="lte-dsp-version">xxx</span>
+      </div>
+      <label>CONNECTIVITY INFO</label>
+      <div>
+        <label>cp2 version</label>
+        <span id="cp2-version">xxx</span>
+        <label>gps version</label>
+        <span id="gps-version">xxx</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="phase-check" role="region">
+  <gaia-header><h1>Phase Check</h1></gaia-header>
+  <div class="text-container">
+    <div id="phase-check-result" tabindex="1">
+      <div id="phase-check-info"></div>
+    </div>
+  </div>
+</section>
+
+<section id="calibrate-info" role="region">
+  <gaia-header><h1>ADC Calibrate Info</h1></gaia-header>
+  <div class="text-container">
+    <div id="calibrate-info-result" tabindex="1">
+      <div id="calibrate-gsm-info"></div>
+      <div id="calibrate-lte-info"></div>
+    </div>
+  </div>
+</section>
+
+<section id="forbid-plmn" role="region">
+  <gaia-header><h1>Forbid PLMN</h1></gaia-header>
+  <div id="forbid-plmn-content" class="text-area">Loading...</div>
+</section>
+
+<section id="net-info" role="region">
+  <gaia-header><h1>Net Info</h1></gaia-header>
+  <div id="net-info-content" class="text-area" tabindex="1">
+    <label>SCELL</label>
+    <p id="scell-info"></p>
+    <label>NCELL</label>
+    <p id="ncell-info"></p><br>
+  </div>
+</section>
+
+<section id="para-set" role="region">
+  <gaia-header><h1>Para Set</h1></gaia-header>
+  <div id="para-set-content" class="content" tabindex="1">
+    <div id="para-set-menu" class="view">
+      <ul>
+        <li data-name="debug" class="focusable">
+          <p>Debug Param</p>
+        </li>
+        <li data-name="rf" class="focusable">
+          <p>RF Para</p>
+        </li>
+        <li data-name="sleep-mode" class="focusable">
+          <p>Sleep Mode</p>
+        </li>
+        <li data-name="rollback-power" class="focusable">
+          <p>Rollback Power</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="para-set-debug" role="region">
+  <gaia-header><h1>Debug Param</h1></gaia-header>
+  <div class="content">
+    <ul>
+      <li id="band-select" class="focusable select-li">
+         <p>Band Select</p>
+         <span>
+           <select id="band-select-items" multiple="true" data-value-type="string">
+             <option value="1" selected>GSM900</option>
+             <option value="2" >DCS1800</option>
+             <option value="3" >PCS1900</option>
+             <option value="4" >GSM850</option>
+           </select>
+         </span>
+       </li>
+      <li id="manual-asset" class="focusable">
+        <p>Manual Assert</p>
+      </li>
+      <li class="checkbox-li focusable" name="modem-reset">
+        <label class="pack-checkbox">
+          <input id="modem-reset" type="checkbox" name="modem-reset"/>
+          <span class="label-span">Modem Reset</span>
+        </label>
+      </li>
+      <li id="cp2-assert" class="focusable">
+        <p>Manual CP2 Assert</p>
+      </li>
+      <li class="checkbox-li focusable" name="cp2-reset">
+        <label class="pack-checkbox">
+          <input id="cp2-reset" type="checkbox" name="cp2-reset"/>
+          <span class="label-span">CP2 Reset</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="para-set-rf" role="region">
+  <gaia-header><h1>RF Param</h1></gaia-header>
+  <div class="content">
+    <ul>
+      <li class="focusable" name="send-power">
+        <label class="pack-checkbox">
+          <input id="send-power" type="checkbox" name="send-power"/>
+          <span class="label-span">Send Power</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="para-set-sleep-mode" role="region">
+  <gaia-header><h1>Sleep Mode</h1></gaia-header>
+  <div class="content">
+    <ul>
+      <li class="focusable" name="sleep-mode">
+        <label class="pack-checkbox">
+          <input id="sleep-mode" type="checkbox" name="sleep-mode"/>
+          <span class="label-span">Sleep Mode</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="para-set-rollback-power" role="region">
+  <gaia-header><h1>Rollback Power</h1></gaia-header>
+  <div class="content">
+    <ul>
+      <li id="low-band-select" class="focusable select-li">
+         <p>Low Band Select</p>
+         <span>
+           <select  data-value-type="string">
+             <option value="0" selected>0dB</option>
+             <option value="1" >2dB</option>
+             <option value="2" >4dB</option>
+             <option value="3" >6dB</option>
+             <option value="4" >8dB</option>
+             <option value="5" >10dB</option>
+             <option value="6" >12dB</option>
+             <option value="7" >14dB</option>
+           </select>
+         </span>
+       </li>
+      <li id="high-band-select" class="focusable select-li">
+         <p>High Band Select</p>
+         <span>
+           <select  data-value-type="string">
+             <option value="0" selected>0dB</option>
+             <option value="1" >2dB</option>
+             <option value="2" >4dB</option>
+             <option value="3" >6dB</option>
+             <option value="4" >8dB</option>
+             <option value="5" >10dB</option>
+             <option value="6" >12dB</option>
+             <option value="7" >14dB</option>
+           </select>
+         </span>
+       </li>
+      <li id="rollback-switch" class="focusable select-li">
+        <p>Switch</p>
+        <span>
+          <select  data-value-type="string">
+            <option value="1" selected>ON</option>
+            <option value="0" >OFF</option>
+          </select>
+        </span>
+      </li>
+      <li class="focusable button-li" name="rollback-power-ok">
+        <div class="button-li-container">
+          OK
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="app-settings" role="region">
+  <gaia-header><h1>APP Settings</h1></gaia-header>
+  <div id="app-settings-content" class="content" tabindex="1">
+    <div id="app-settings-menu" class="view hidden">
+      <ul>
+        <li class="checkbox-li focusable" name="auto-answer">
+          <label class="pack-checkbox">
+            <input id="auto-answer" type="checkbox" name="auto-answer"/>
+            <span class="label-span">Auto Answer</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="arm-log">
+          <label class="pack-checkbox">
+            <input id="arm-log" type="checkbox" name="arm-log"/>
+            <span class="label-span">ARM log</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="dsp-log">
+          <label class="pack-checkbox">
+            <input id="dsp-log" type="checkbox" name="dsp-log"/>
+            <span class="label-span">DSP log</span>
+          </label>
+        </li>
+        <li name="log-settings" class="hidden focusable">
+          <p>Log Settings</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="antenna-settings" role="region">
+  <gaia-header><h1>Antenna Settings</h1></gaia-header>
+  <div id="antenna-settings-content" class="content" tabindex="1">
+    <div id="antenna-settings-menu" class="view hidden">
+      <h3>LTE</h3>
+      <ul>
+        <li class="focusable" name="primary-and-diversity">
+          <label class="pack-radio">
+            <input type="radio" name="primaryanddiversity"/>
+            <span class="label-span">Primary and Diversity</span>
+          </label>
+        </li>
+        <li class="focusable" name="primary-only">
+          <label class="pack-radio">
+            <input type="radio" name="primaryanddiversity" checked="true"/>
+            <span class="label-span">Primary only</span>
+          </label>
+        </li>
+        <li class="focusable" name="diversity-only">
+          <label class="pack-radio">
+            <input type="radio" name="primaryanddiversity"/>
+            <span class="label-span">Diversity only</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="log-settings" role="region">
+  <gaia-header><h1>Log Settings</h1></gaia-header>
+  <div id="log-settings-content" tabindex="1">
+  <ul id="slog_switch_list">
+    <li id="menuItem-logManager" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="log-switch" type="checkbox"/>
+          <span class="label-span">Log Switch</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  <header>AP Log</header>
+  <ul id="ap_log_list">
+    <li id="menuItem-ap" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="ap-switch" type="checkbox"/>
+          <span class="label-span">AP Log</span>
+        </label>
+      </div>
+    </li>
+    <li id="ap-settings" class="focusable">
+      <p>AP Log Settings</p>
+    </li>
+  </ul>
+  <header>Modem Log</header>
+  <ul id="modem_log_list">
+    <li id="menuItem-modem" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="modem-switch" type="checkbox"/>
+          <span class="label-span">Modem Log</span>
+        </label>
+      </div>
+    </li>
+    <li id="modem-settings" class="focusable">
+      <p>Modem Log Settings</p>
+    </li>
+  </ul>
+  <header>CAP Log</header>
+  <ul id="cap_log_list">
+
+    <li id="menuItem-cap" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="cap-switch" type="checkbox"/>
+          <span class="label-span">Cap Log</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+
+  <header>Clear</header>
+  <ul>
+    <li id="clean-logs" class="focusable">
+      <label>Clean all logs</label>
+      <label>
+        <span id="used" class="left"></span>
+        <span id="total" class="right"></span>
+      </label>
+    </li>
+  </ul>
+  </div>
+</section>
+
+<section id="log-settings-ap" role="region">
+  <gaia-header><h1>AP Log Settings</h1></gaia-header>
+  <div id="log-settings-ap-content" tabindex="1">
+  <ul>
+    <li id="ap-tcpip-log" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="ap-tcpip-log-switch" type="checkbox"/>
+          <span class="label-span">TCP/IP log</span>
+        </label>
+      </div>
+    </li>
+
+    <li id="ap-bt-hci-log" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="ap-bt-hci-log-switch" type="checkbox"/>
+          <span class="label-span">BT HCI log</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  </div>
+</section>
+
+<section id="log-settings-modem" role="region">
+  <gaia-header><h1>Modem Log Settings</h1></gaia-header>
+  <div id="log-settings-modem-content" tabindex="1">
+  <ul role="menu">
+    <li id="menuItem-modem-to-pc" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="modem-to-pc-switch" type="checkbox"/>
+          <span class="label-span">Modem to PC</span>
+        </label>
+      </div>
+    </li>
+    <li id="menuItem-wcn" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="wcn-switch" type="checkbox"/>
+          <span class="label-span">WCN log</span>
+        </label>
+      </div>
+    </li>
+    <li id="menuItem-dump-wcn" class="focusable">
+      <p class="label-span">Dump WCN Memory</p>
+    </li>
+    <li id="menuItem-gnss" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="gnss-switch" type="checkbox"/>
+          <span class="label-span">GNSS log</span>
+        </label>
+      </div>
+    </li>
+    <li id="menuItem-pcm" class="focusable">
+      <div>
+        <label class="pack-checkbox">
+          <input id="pcm-switch" type="checkbox"/>
+          <span class="label-span">PCM log</span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  </div>
+</section>
+
+<section id="sgps" role="region">
+  <gaia-header><h1>SGPS</h1></gaia-header>
+  <gaia-tabs id="sgps-tab" class="h3" underline="child" selected="0" position="top">
+    <a><span>SATELLI</span></a>
+    <a><span>DEBUG</span></a>
+    <a><span>INFORMA</span></a>
+    <a><span>NMEA</span></a>
+    <a><span>GPSCIRC</span></a>
+    <a><span>GPSTEST</span></a>
+  </gaia-tabs>
+  <!--<div id="gps-info" class="text-area"></div>-->
+
+  <div class="sgps-tabpage" role="region" id="sgps-satelli">
+    <ul>
+      <li class="focusable large-li">
+        <canvas id="satelli" width="240px" height="200px">
+        </canvas>
+      </li>
+      <li class="focusable large-li">
+        <canvas id="signal" width="240px" height="180px">
+        </canvas>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sgps-tabpage" role="region" id="debug-log" hidden>
+    <header>
+      <div id="h1-debuglog">Debug log:</div>
+    </header>
+    <div id="debuglog-content" class="content-list focusable" tabindex="1">
+    </div>
+  </div>
+
+  <div class="sgps-tabpage" role="region" id="sgps-information">
+    <div class="content-list">
+      <ul>
+        <li class="focusable large-li">
+          <div id="sgps-info-provider">Provider: gps enabled</div>
+          <div id="sgps-info-status">Status: Spreadtrum.Inc</div>
+          <div id="sgps-info-ttff">TTFF: </div>
+          <div id="sgps-info-date">Date: </div>
+          <div id="sgps-info-time">Time: </div>
+          <div id="sgps-info-first-latitude">First Latitude: </div>
+          <div id="sgps-info-first-longitude">First Longitude: </div>
+          <hr/>
+        </li>
+        <li class="focusable large-li">
+          <div id="sgps-info-latitude">Latitude: </div>
+          <div id="sgps-info-longitude">Longitude: </div>
+          <div id="sgps-info-altitude">Altitude: </div>
+          <div id="sgps-info-accuracy">Accuracy: </div>
+          <div id="sgps-info-heading">Heading: </div>
+          <div id="sgps-info-speed">Speed: </div>
+          <div id="sgps-info-averagecn">AverageCN: </div>
+          <hr/>
+        </li>
+        <li class="focusable large-li">
+          <div id="sgps-info-gps-version">GPS version: </div>
+          <div id="sgps-info-sgps-version">SGPS version: v1.0.0</div>
+          <hr/>
+        </li>
+
+        <li id="start-mode-select" class="focusable select-li">
+          <p>Start Mode:</p>
+          <span>
+          <select  data-value-type="string">
+           <option value="hot" selected>Hot</option>
+           <option value="warm" >Warm</option>
+           <option value="cold" >Cold</option>
+           <option value="factory" >Factory</option>
+          </select>
+        </span>
+        </li>
+        <li class="focusable select-li" name="spgs-restart">
+          <button>RESTART</button>
+        </li>
+        <li class="checkbox-li focusable" name="sgps-switch-item">
+          <label class="pack-checkbox">
+            <input id="sgps-switch" type="checkbox" name="sgps-switch-item"/>
+            <span class="label-span">SGPS Switch</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="spreadorbit-switch-item">
+          <label class="pack-checkbox">
+            <input id="spreadorbit-switch" type="checkbox" name="spreadorbit-switch-item"/>
+            <span class="label-span">SpreadOrbit Switch</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="realeph-switch-item">
+          <label class="pack-checkbox">
+            <input id="realeph-switch" type="checkbox" name="realeph-switch-item"/>
+            <span class="label-span">Real-EPH Switch</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="gnsslog-switch-item">
+          <label class="pack-checkbox">
+            <input id="gnsslog-switch" type="checkbox" name="gnsslog-switch-item"/>
+            <span class="label-span">GNSS Log Switch</span>
+          </label>
+        </li>
+        <li id="location-mode-select" class="focusable select-li">
+          <p>Location:</p>
+          <span>
+            <select  data-value-type="string">
+             <option value="001" selected>GPS Only</option>
+             <option value="100" >GLONASS Only</option>
+             <option value="010" >BDS Only</option>
+             <option value="101" >GLONASS+GPS</option>
+             <option value="011" >GPS+BDS</option>
+            </select>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sgps-tabpage" role="region" id="nmea-log" hidden>
+    <ul>
+      <li class="checkbox-li focusable" name="nmea-save-switch-item" hidden>
+        <label class="pack-checkbox">
+          <input id="nmea-save-switch" type="checkbox" name="nmea-save-switch"/>
+          <span class="label-span">Save in BG</span>
+        </label>
+      </li>
+      <li class="focusable select-li" name="nmea-log-start">
+        <button id="nmea-log-start">START</button>
+      </li>
+      <li class="focusable select-li" name="nmea-log-stop">
+        <button id="nmea-log-stop">STOP</button>
+      </li>
+      <li class="focusable select-li" name="nmea-log-clear">
+        <button id="nmea-log-clear">CLEAR</button>
+      </li>
+    </ul>
+    <header>
+      <div>NMEA LOG:</div>
+    </header>
+    <div id="nmea-log-content" class="content-list">
+    </div>
+  </div>
+
+  <div class="sgps-tabpage" role="region" id="sgps-circ" hidden>
+    <div class="bb-docs" id="newparameters">
+      <ul class="contentlist">
+        <li id="agps-times" class="focusable select-li" name="agps-times">
+          <label>Times 1~999:</label>
+          <input id="newgeoloc-times" type="tel" value="30" />
+        </li>
+        <li id="agps-interval" class="focusable select-li" name="agps-interval">
+          <label>Interval 7~999(s):</label>
+          <input id="newgeoloc-interval" type="tel" value="10" />
+        </li>
+        <li id="agps-transfer-interval" class="focusable select-li" name="agps-transfer-interval">
+          <label>transfer_Interval 0~999(s):</label>
+          <input id="newgeoloc-transfer-interval" type="tel" value="10" />
+        </li>
+        <li id="agps-timeout" class="focusable select-li" name="agps-timeout">
+          <label>TTFF timeout 60~999:</label>
+          <input id="newgeoloc-timeout" type="tel" value="240" />
+        </li>
+        <li id="gps-mode-select" class="focusable select-li">
+          <label>Modes:</label>
+          <span>
+          <select data-value-type="string">
+            <option value="hot" selected>Hot</option>
+            <option value="warm">Warm</option>
+            <option value="cold">Cold</option>
+            <option value="factory">Factory</option>
+          </select>
+        </span>
+        </li>
+      </ul>
+    </div>
+    <div class="content-list">
+      <ul>
+        <li class="focusable select-li" name="sgps-info-start">
+          <button id="sgps-info-start">Start(*)</button>
+        </li>
+        <li class="focusable select-li" name="sgps-info-stop">
+          <button id="sgps-info-stop">Stop(#)</button>
+        </li>
+        <li class="focusable select-li" name="sgps-info-watch" hidden>
+          <button id="sgps-info-watch">Watch(9)</button>
+        </li>
+        <li class="focusable large-li">
+          <div class="sgps-result-large" id="sgps-info-current-times">Current Times: </div>
+          <div class="sgps-result-large" id="sgps-info-last-ttff">Last TTFF: </div>
+          <div class="sgps-result-large" id="sgps-info-avarage-ttff">Avarage TTFF: </div>
+          <div class="sgps-result-large" id="sgps-info-count-down">Count Down: </div>
+          <div class="sgps-result-large" id="sgps-info-restart-mode">Restart Mode: </div>
+          <hr/>
+        </li>
+        <li class="focusable large-li">
+          <div class="sgps-result-large" id="sgps-info-timeout-times">TTFF timeoutTimes: </div>
+          <div class="sgps-result-large" id="sgps-info-total-times">Totle Times: </div>
+          <div class="sgps-result-large" id="sgps-info-success-rate">Success Rate: </div>
+          <div class="sgps-result-large" id="sgps-info-avarage-ttff-s">Avarage TTFF(s): </div>
+          <div class="sgps-result-large" id="sgps-info-m68ttff">m68Ttff is: </div>
+          <div class="sgps-result-large" id="sgps-info-m95ttff">m95Ttff is: </div>
+          <div class="sgps-result-large" id="sgps-info-maxttff">maxTtff is: </div>
+          <hr/>
+        </li>
+        <li class="focusable large-li">
+          <div class="sgps-result-large" id="sgps-info-avedistance">Avarage distance(m): </div>
+          <div class="sgps-result-large" id="sgps-info-m68distance">m68FirstDistance is: </div>
+          <div class="sgps-result-large" id="sgps-info-m95distance">m95FirstDistance is: </div>
+          <div class="sgps-result-large" id="sgps-info-maxdistance">maxFirstDistance is: </div>
+          <div class="sgps-result-large" id="sgps-info-inusedave">stateInusedAve is: </div>
+          <div class="sgps-result-large" id="sgps-info-trackingave">stateTrackingAve is: </div>
+          <hr/>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sgps-tabpage" role="region" id="sgps-test" hidden>
+    <div class="bb-docs" id="newparameters_extra">
+      <ul class="contentlist">
+        <li id="gps-test-latitude" class="focusable select-li" name="gps-test-latitude-item">
+          <label>Latitude:(option)</label>
+          <input id="gps-test-latitude-input" type="tel" value="0"/>
+        </li>
+        <li id="gps-test-longtitude" class="focusable select-li" name="gps-test-longtitude-item">
+          <label>Longtitude:(option)</label>
+          <input id="gps-test-longtitude-input" type="tel" value="0"/>
+        </li>
+        <li class="focusable select-li" name="gps-test-save">
+          <button>SAVE</button>
+        </li>
+        <li class="focusable large-li">
+          <div class="sgps-result-large" id="result_average_dis">Average distance(m):N/A</div>
+          <div class="sgps-result-large" id="result_average_ttff">Average TTFF(s):N/A</div>
+        </li>
+        <li class="focusable select-li">
+          <div class="sgps-result-small">No.</div>
+          <div class="sgps-result">Lat(deg)</div>
+          <div class="sgps-result">Lon(deg)</div>
+          <div class="sgps-result">Dis(m)</div>
+          <div class="sgps-result">TTFF(s)</div>
+        </li>
+      </ul>
+      <ul id="gps_result_list" class="contentlist">
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="memtest" role="region">
+  <gaia-header><h1>MEMTEST</h1></gaia-header>
+  <gaia-tabs id="memtest-tab" class="h3" underline="child" selected="0" position="top">
+    <a><span>SETTING</span></a>
+    <a><span>VIDEO</span></a>
+  </gaia-tabs>
+
+  <div class="memtest-tabpage" role="region" id="memtest-settings">
+    <div class="bb-docs" id="memtestparameters">
+      <ul>
+        <li id="memtest-video-select" class="focusable select-li">
+          <p>Video:</p>
+          <span>
+            <select id="video-select" data-value-type="string">
+              <option value="" selected>EMPTY</option>
+            </select>
+          </span>
+        </li>
+        <li id="memtest-times" class="focusable select-li" name="memtest-times">
+          <label>Play Times:</label>
+          <input id="memtest-play-times" value="10" type="tel">
+        </li>
+        <li id="memtest-interval" class="focusable select-li" name="memtest-interval">
+          <label>Play Interval (seconds):</label>
+          <input id="memtest-play-interval" value="10" type="tel">
+        </li>
+        <li id="memtest-size" class="focusable select-li" name="memtest-size">
+          <label>Memter Size (M):</label>
+          <input id="memtest-test-size" value="2" type="tel">
+        </li>
+        <li class="focusable select-li" name="memtest-start">
+          <button id="memtest-start">START</button>
+        </li>
+        <li class="focusable select-li" name="memtest-stop">
+          <button id="memtest-stop">STOP</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="memtest-tabpage" role="region" id="memtest-video" hidden="">
+    <div id="memtest-video-container" role="button">
+      <video id="memtest-video-control" preload="metadata">
+        <p> Your browser does not support the video tag.</p>
+      </video>
+    </div>
+    <div id="memtest-text">
+      <div id="mem-text" class="memtest-text" style="word-break: break-all;overflow:scroll;word-wrap: break-word"></div>
+    </div>
+  </div>
+</section>
+
+<section id="flashtest" role="region">
+  <gaia-header><h1>FLASHTEST</h1></gaia-header>
+  <gaia-tabs id="flashtest-tab" class="h3" underline="child" selected="0" position="top">
+    <a><span>SETTING</span></a>
+    <a><span>VIDEO</span></a>
+  </gaia-tabs>
+
+  <div class="flashtest-tabpage" role="region" id="flashtest-settings">
+    <div class="bb-docs" id="flashtestparameters">
+      <ul>
+        <li id="flashtest-video-select" class="focusable select-li">
+          <p>Video:</p>
+          <span>
+            <select id="flash-video-select" data-value-type="string">
+              <option value="" selected>EMPTY</option>
+            </select>
+          </span>
+        </li>
+        <li id="flashtest-interval" class="focusable select-li" name="flashtest-interval">
+          <label>Play Duration (hours):</label>
+          <input id="flashtest-play-duration" value="12" type="tel">
+        </li>
+        <li id="flashtest-size" class="focusable select-li" name="flashtest-size">
+          <label>Memter Size (M):</label>
+          <input id="flashtest-test-size" value="2" type="tel">
+        </li>
+        <li class="focusable select-li" name="flashtest-start">
+          <button id="flashtest-start">START</button>
+        </li>
+        <li class="focusable select-li" name="flashtest-stop">
+          <button id="flashtest-stop">STOP</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flashtest-tabpage" role="region" id="flashtest-video" hidden="">
+    <div id="flashtest-text">
+      <div id="flash-text" style="word-break: break-all;overflow:scroll;word-wrap: break-word"></div>
+    </div>
+    <div id="flashtest-video-container" role="button">
+      <video id="flashtest-video-control" preload="metadata" width="360" height="240">
+        <p> Your browser does not support the video tag.</p>
+      </video>
+    </div>
+  </div>
+</section>
+
+<section id="reboot" role="region">
+    <gaia-header><h1>REBOOT</h1></gaia-header>
+    <div id="reboot-content" class="content" tabindex="1">
+      <div id="reboot-menu" class="view hidden">
+        <ul>
+         <li class="checkbox-li focusable" name="reboot-switch-item">
+            <label class="pack-checkbox">
+              <input id="reboot-switch" type="checkbox" checked="checked" name="reboot-switch"/>
+              <span>Reboot Switch</span>
+            </label>
+          </li>
+          <li id="reboot-times" class="focusable select-li" name="reboot-times">
+            <label>Reboot Times:</label>
+            <input id="reboot-phone-times" value="5" type="tel">
+          </li>
+          <li id="awake-times" class="focusable select-li" name="awake-times">
+            <label>Awake Times:</label>
+            <input id="awake-phone-times" value="5" type="tel">
+          </li>
+          <li class="focusable select-li" name="reboot-start">
+            <button id="reboot-start">START</button>
+          </li>
+          <li class="focusable select-li" name="reboot-stop">
+            <button id="reboot-stop">STOP</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+</section>
+
+<section id="factory-reset" role="region">
+  <gaia-header><h1>Factory Reset</h1></gaia-header>
+  <div id="reset-content" class="content" tabindex="1">
+    <div id="reset-menu" class="view hidden">
+      <ul>
+        <li class="checkbox-li focusable" name="reset-switch-item">
+          <label class="pack-checkbox">
+            <input id="reset-switch" checked="checked" name="reset-switch" type="checkbox">
+            <span>Reset Switch</span>
+          </label>
+        </li>
+        <li id="reset-times" class="focusable select-li" name="reset-times">
+          <label>Reset Times:</label>
+          <input id="reset-phone-times" value="5" type="tel">
+        </li>
+        <li id="reset-awake-times" class="focusable select-li" name="reset-awake-times">
+          <label>Awake Times:</label>
+          <input id="reset-awake-phone-times" value="5" type="tel">
+        </li>
+        <li class="focusable select-li" name="reset-start">
+          <button id="reset-start">START</button>
+        </li>
+        <li class="focusable select-li" name="reset-stop">
+          <button id="reset-stop">STOP</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="sleepawake" role="region">
+  <gaia-header><h1>SLEEPAWAKE</h1></gaia-header>
+  <div id="sleepawake-content" class="content" tabindex="1">
+    <div id="sleepawake-menu" class="view hidden">
+      <div class="memtest-tabpage">
+        <ul>
+          <li id="sleep-time" class="focusable select-li" name="sleep-time">
+            <label>Sleep Time(S):</label>
+            <input id="sleep-phone-time" value="40" type="tel">
+          </li>
+          <li id="awake-time" class="focusable select-li" name="awake-time">
+            <label>Awake Time(S):</label>
+            <input id="awake-phone-time" value="40" type="tel">
+          </li>
+          <li class="focusable select-li" name="sleepawake-start">
+            <button id="sleepawake-start">START</button>
+          </li>
+          <li class="focusable select-li" name="sleepawake-stop">
+            <button id="sleepawake-stop">STOP</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mlog" role="region">
+  <div id="mlog-content" class="content" tabindex="1">
+    <div id="mlog-menu" class="view" hidden>
+      <ul >
+      <li id="file-select" class="focusable select-li" name="mlog-setting-item" >
+        <p id="choose-file">choose file</p>
+        <span id="span-select">
+          <select data-value-type="string" id="select" name="mlog-setting-item">
+            <option value="/data/mlog/smart.txt" selected >/data/mlog/smart.txt</option>
+            <option value="/data/mlog/ae.txt">/data/mlog/ae.txt</option>
+            <option value="/data/mlog/awb.txt">/data/mlog/awb.txt</option>
+            <option value="/data/mlog/lsc1.txt">/data/mlog/lsc1.txt</option>
+          </select>
+        </span>
+      </li>
+      <li class="focusable" name="mlog-switch">
+          <label id="mlog-switch-lable" class="pack-checkbox" >
+            <input id="mlog-switch" type="checkbox" name="mlog-switch" checked="checked"/>
+            <span>Mlog Switch</span>
+          </label>
+      </li>
+      <li id="fps-select" class="focusable select-li" name="mlog-setting-fps">
+        <p id="choose-fps">choose fps</p>
+        <span id="span">
+          <select data-value-type="string" id="select-fps" name="mlog-setting-fps">
+            <option value="1000">1</option>
+            <option value="966">2</option>
+            <option value="933">3</option>
+            <option value="900">4</option>
+            <option value="866">5</option>
+            <option value="833">6</option>
+            <option value="800">7</option>
+            <option value="766">8</option>
+            <option value="733">9</option>
+            <option value="700">10</option>
+            <option value="666">11</option>
+            <option value="633">12</option>
+            <option value="600">13</option>
+            <option value="566">14</option>
+            <option value="533">15</option>
+            <option value="500">16</option>
+            <option value="466">17</option>
+            <option value="433">18</option>
+            <option value="400">19</option>
+            <option value="366">20</option>
+            <option value="333">21</option>
+            <option value="300">22</option>
+            <option value="266">23</option>
+            <option value="233">24</option>
+            <option value="200">25</option>
+            <option value="166">26</option>
+            <option value="133">27</option>
+            <option value="100">28</option>
+            <option value="66">29</option>
+            <option value="33">30</option>
+          </select>
+        </span>
+      </li>
+      </ul>
+    </div>
+    <video id="viewfinder" mozallowfullscreen="true" ></video>
+    <div id="mlog-text">
+    <div id="centertext"  class="mlog-text" style='word-break: break-all;overflow:scroll;word-wrap: break-word'></div>
+    </div>
+  </div>
+</section>
+
+<section id="connectivity" role="region">
+  <gaia-header><h1>CONNECTIVITY</h1></gaia-header>
+  <div id="connectivity-content" class="content" tabindex="1">
+    <div id="connectivity-menu" class="view hidden">
+      <ul>
+        <li class="focusable select-li" name="connectivity-start-service">
+          <button>START SERVICE</button>
+        </li>
+        <li class="focusable select-li" name="connectivity-stop-service">
+          <button>STOP SERVICE</button>
+        </li>
+        <li class="checkbox-li focusable" name="connectivity-wifi">
+          <label class="pack-checkbox">
+            <span>
+            <div>WiFi eut</div>
+            </span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="connectivity-bt">
+          <label class="pack-checkbox">
+            <span>
+            <div>BT</div>
+            </span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="connectivity-fm">
+          <label class="pack-checkbox">
+            <span>
+            <div>FM</div>
+            </span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="bt" role="region">
+  <gaia-header><h1>BT</h1></gaia-header>
+  <div id="bt-content" class="content" tabindex="1">
+    <div id="bt-menu" class="view hidden">
+      <ul>
+        <li class="focusable select-li" name="start-bt-service">
+          <button>START BT SERVICE</button>
+        </li>
+        <li class="focusable select-li" name="stop-bt-service">
+          <button>STOP BT SERVICE</button>
+        </li>
+        <li class="checkbox-li focusable" name="bt-eut">
+          <label class="pack-checkbox">
+            <input id="bt-eut" type="checkbox" name="bt-eut"/>
+            <span class="label-span">BT EUT</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="bt-nosingnal">
+          <label class="pack-checkbox">
+            <span>
+            <div>BT_NOSIGNAL_TEST</div>
+            <small>please close BT EUT to test</small>
+            </span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="bqb-mode">
+          <label class="pack-checkbox">
+            <input id="bqb-mode" type="checkbox" name="bqb-mode"/>
+            <span class="label-span">BQB MODE</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="non-ssp">
+          <label class="pack-checkbox">
+            <input id="non-ssp" type="checkbox" name="non-ssp"/>
+            <span>
+              <div>NON SSP</div>
+              <small>重启蓝牙生效</small>
+            </span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="bt-nosignal-test" role="region">
+  <gaia-header><h1>BT NOSIGNAL TEST</h1></gaia-header>
+  <div id="nosignal-test-content" class="content" tabindex="1">
+    <div id="nosignal-test-menu" class="view hidden">
+      <ul>
+        <li class="checkbox-li focusable" name="nosignal-tx">
+          <label class="pack-checkbox">
+            <span class="label-span">NO SIGNALLING TX</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="nosignal-rx">
+          <label class="pack-checkbox">
+            <span class="label-span">NO SIGNALLING RX</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="nosignal-ble-tx">
+          <label class="pack-checkbox">
+            <span class="label-span">NO SIGNALLING BLE TX</span>
+          </label>
+        </li>
+        <li class="checkbox-li focusable" name="nosignal-ble-rx">
+          <label class="pack-checkbox">
+            <span class="label-span">NO SIGNALLING BLE RX</span>
+          </label>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="no-signal-tx" role="region">
+  <gaia-header><h1>NO SIGNAL TX</h1></gaia-header>
+  <div id="no-signal-tx-content" class="content" tabindex="1">
+    <div id="no-signal-tx-menu" class="view hidden">
+     <ul id="no-signal-tx-ul">
+      <li id="bt-tx-pattern" class="focusable select-li" name="bt-tx-pattern">
+        <p>TX Pattern</p>
+        <span>
+           <select  data-value-type="string">
+             <option value="1" selected>00000000</option>
+             <option value="2" >11111111</option>
+             <option value="3" >10101010</option>
+             <option value="4" >PRBS9</option>
+             <option value="9" >11110000</option>
+           </select>
+         </span>
+      </li>
+
+       <li id="bt-tx-channel" class="focusable select-li" name="bt-tx-channel">
+         <p>TX Channel</p>
+         <span>
+           <input id="bt-tx-channel-input" type="text" placeholder="0~78 or 255">
+         </span>
+       </li>
+
+       <li id="bt-tx-pac-type" class="focusable select-li" name="bt-tx-pac-type">
+         <p>TX Pac Type</p>
+         <span>
+           <select  id="bt-tx-pac-type-select" data-value-type="string">
+             <option value="0" selected>NULLpkt</option>
+             <option value="1" >POLLpkt</option>
+             <option value="2" >FHSpkt</option>
+             <option value="3" >DM1</option>
+             <option value="4" >DH1</option>
+             <option value="5" >DV1</option>
+             <option value="6" >DV2</option>
+             <option value="7" >HV3</option>
+             <option value="8" >DV</option>
+             <option value="9" >AUX1</option>
+             <option value="10" >DM3</option>
+             <option value="11" >DH3</option>
+             <option value="12" >EV4</option>
+             <option value="13" >EV5</option>
+             <option value="14" >DM5</option>
+             <option value="15" >DH5</option>
+             <option value="16" >IDpkt</option>
+             <option value="17" >INVALLpkt</option>
+             <option value="20" >EDR_LDH1</option>
+             <option value="21" >EV3</option>
+             <option value="22" >EDR_2EH3</option>
+             <option value="23" >EDR_3EV3</option>
+             <option value="24" >EDR_3DH1</option>
+             <option value="25" >EDR_AUX1</option>
+             <option value="26" >EDR_2DH3</option>
+             <option value="27" >EDR_3DH3</option>
+             <option value="28" >EDR_2EV5</option>
+             <option value="29" >EDR_3EV5</option>
+             <option value="30" >EDR_2DH5</option>
+             <option value="31" >EDR_3DH5</option>
+           </select>
+         </span>
+       </li>
+
+       <li id="bt-tx-pac-len" class="focusable select-li" name="bt-tx-pac-len">
+         <p>TX Pac Len</p>
+         <span>
+           <input id="bt-tx-pac-len-input" type="text" placeholder="">
+         </span>
+       </li>
+
+       <li id="bt-tx-power-type" class="focusable select-li" name="bt-tx-power-type">
+         <p>TX Power Type</p>
+         <span>
+           <select  data-value-type="string">
+             <option value="0" selected>0</option>
+             <option value="1" >1</option>
+           </select>
+         </span>
+       </li>
+
+       <li id="bt-tx-power-value" class="focusable select-li" name="bt-tx-power-value">
+         <p>TX Power Value</p>
+         <span>
+           <input id="bt-tx-power-value-input" type="text" placeholder="0~33">
+         </span>
+       </li>
+
+       <li id="bt-tx-pac-cnt" class="focusable select-li" name="bt-tx-pac-cnt">
+         <p>TX Pac Cnt</p>
+         <span>
+           <input id="bt-tx-pac-cnt-input" type="text" placeholder="0~65535">
+         </span>
+       </li>
+
+       <li id="bt-tx-start" class="focusable select-li" name="bt-tx-start">
+         <button>START</button>
+       </li>
+
+       <li id="bt-tx-stop" class="focusable select-li" name="bt-tx-stop">
+         <button>STOP</button>
+       </li>
+
+     </ul>
+    </div>
+  </div>
+</section>
+
+<section id="no-signal-rx" role="region">
+  <gaia-header><h1>NO SIGNAL RX</h1></gaia-header>
+  <div id="no-signal-rx-content" class="content" tabindex="1">
+    <div id="no-signal-rx-menu" class="view hidden">
+      <ul id="no-signal-rx-ul">
+        <li id="bt-rx-channel" class="focusable select-li" name="bt-rx-channel">
+          <p>RX Channel</p>
+          <span>
+           <input id="bt-rx-channel-input" type="text" placeholder="0~78">
+         </span>
+        </li>
+
+        <li id="bt-rx-pac-type" class="focusable select-li" name="bt-rx-pac-type">
+          <p>RX Pac Type</p>
+          <span>
+           <select id="bt-rx-pac-type-select"  data-value-type="string">
+             <option value="0" selected>NULLpkt</option>
+             <option value="1" >POLLpkt</option>
+             <option value="2" >FHSpkt</option>
+             <option value="3" >DM1</option>
+             <option value="4" >DH1</option>
+             <option value="5" >DV1</option>
+             <option value="6" >DV2</option>
+             <option value="7" >HV3</option>
+             <option value="8" >DV</option>
+             <option value="9" >AUX1</option>
+             <option value="10" >DM3</option>
+             <option value="11" >DH3</option>
+             <option value="12" >EV4</option>
+             <option value="13" >EV5</option>
+             <option value="14" >DM5</option>
+             <option value="15" >DH5</option>
+             <option value="16" >IDpkt</option>
+             <option value="17" >INVALLpkt</option>
+             <option value="20" >EDR_LDH1</option>
+             <option value="21" >EV3</option>
+             <option value="22" >EDR_2EH3</option>
+             <option value="23" >EDR_3EV3</option>
+             <option value="24" >EDR_3DH1</option>
+             <option value="25" >EDR_AUX1</option>
+             <option value="26" >EDR_2DH3</option>
+             <option value="27" >EDR_3DH3</option>
+             <option value="28" >EDR_2EV5</option>
+             <option value="29" >EDR_3EV5</option>
+             <option value="30" >EDR_2DH5</option>
+             <option value="31" >EDR_3DH5</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="bt-rx-gain" class="focusable select-li" name="bt-rx-gain">
+          <p>RX Gain</p>
+          <span>
+           <input id="bt-rx-gain-input" type="text" placeholder="0~32">
+         </span>
+        </li>
+
+        <li id="bt-rx-addr" class="focusable select-li" name="bt-rx-addr">
+          <p>RX Addr</p>
+          <span>
+           <input id="bt-rx-addr-input" type="text" placeholder="12 bites addr">
+         </span>
+        </li>
+
+        <li id="bt-rx-start" class="focusable select-li" name="bt-rx-start">
+          <button>START</button>
+        </li>
+
+        <li id="bt-rx-read" class="focusable select-li" name="bt-rx-read">
+          <button>READ</button>
+        </li>
+
+        <li id="bt-rx-auto" class="focusable select-li" name="bt-rx-auto">
+          <button>AUTO</button>
+        </li>
+
+        <li id="bt-rx-clear" class="focusable select-li" name="bt-rx-clear">
+          <button>CLEAR</button>
+        </li>
+
+        <li id="bt-rx-stop" class="focusable select-li" name="bt-rx-stop">
+          <button>STOP</button>
+        </li>
+
+        <li class="focusable select-li">
+          <p>TIME</p><p>RSSI</p><p>PER</p><p>BER</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="no-signal-ble-tx" role="region">
+  <gaia-header><h1>NO SIGNAL BLE TX</h1></gaia-header>
+  <div id="no-signal-ble-tx-content" class="content" tabindex="1">
+    <div id="no-signal-ble-tx-menu" class="view hidden">
+      <ul id="no-signal-ble-tx-ul">
+        <li id="bt-ble-tx-pattern" class="focusable select-li" name="bt-ble-tx-pattern">
+          <p>BLE TX Pattern</p>
+          <span>
+            <select id="bt-ble-tx-pattern-select"  data-value-type="string">
+              <option value="4" selected>11111111</option>
+              <option value="2" >10101010</option>
+              <option value="0" >PRBS9</option>
+              <option value="1" >11110000</option>
+            </select>
+          </span>
+        </li>
+
+        <li id="bt-ble-tx-channel" class="focusable select-li" name="bt-ble-tx-channel">
+          <p>BLE TX Channel</p>
+          <span>
+            <input id="bt-ble-tx-channel-input" type="text" placeholder="0~39">
+         </span>
+        </li>
+
+        <li id="bt-ble-tx-pac-type" class="focusable select-li" name="bt-ble-tx-pac-type">
+          <p>BLE TX Pac Type</p>
+          <span>
+            <select id="bt-ble-tx-pac-type-select"  data-value-type="string">
+              <option value="0" selected>0</option>
+            </select>
+          </span>
+        </li>
+
+        <li id="bt-ble-tx-pac-len" class="focusable select-li" name="bt-ble-tx-pac-len">
+          <p>BLE TX Pac Len</p>
+          <span>
+           <input id="bt-ble-tx-pac-len-input" type="text" placeholder="0~37">
+         </span>
+        </li>
+
+        <li id="bt-ble-tx-power-type" class="focusable select-li" name="bt-ble-tx-power-type">
+          <p>BLE TX Power Type</p>
+          <span>
+            <select id="bt-ble-tx-power-type-select"  data-value-type="string">
+              <option value="0" selected>0</option>
+              <option value="1" >1</option>
+            </select>
+          </span>
+        </li>
+
+        <li id="bt-ble-tx-power-value" class="focusable select-li" name="bt-ble-tx-power-value">
+          <p>BLE TX Power Value</p>
+          <span>
+           <input id="bt-ble-tx-power-value-input" type="text" placeholder="">
+         </span>
+        </li>
+
+        <li id="bt-ble-tx-pac-cnt" class="focusable select-li" name="bt-ble-tx-pac-cnt">
+          <p>BLE TX Pac Cnt</p>
+          <span>
+           <input id="bt-ble-tx-pac-cnt-input" type="text" placeholder="0~65535">
+         </span>
+        </li>
+
+        <li id="bt-ble-tx-start" class="focusable select-li" name="bt-ble-tx-start">
+          <button>START</button>
+        </li>
+
+        <li id="bt-ble-tx-stop" class="focusable select-li" name="bt-ble-tx-stop">
+          <button>STOP</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="no-signal-ble-rx" role="region">
+  <gaia-header><h1>NO SIGNAL BLE RX</h1></gaia-header>
+  <div id="no-signal-ble-rx-content" class="content" tabindex="1">
+    <div id="no-signal-ble-rx-menu" class="view hidden">
+      <ul id="no-signal-ble-rx-ul">
+        <li id="bt-ble-rx-channel" class="focusable select-li" name="bt-ble-rx-channel">
+          <p>BLE RX Channel</p>
+          <span>
+            <input id="bt-ble-rx-channel-input" type="text" placeholder="0~39">
+          </span>
+        </li>
+
+        <li id="bt-ble-rx-pac-type" class="focusable select-li" name="bt-ble-rx-pac-type">
+          <p>BLE RX Pac Type</p>
+          <span>
+           <select id="bt-ble-rx-pac-type-select"  data-value-type="string">
+             <option value="0" selected>0</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="bt-ble-rx-gain" class="focusable select-li" name="bt-ble-rx-gain">
+          <p>BLE RX Gain</p>
+          <span>
+           <input id="bt-ble-rx-gain-input" type="text" placeholder="0~5">
+         </span>
+        </li>
+
+        <li id="bt-ble-rx-addr" class="focusable select-li" name="bt-ble-rx-addr">
+          <p>BLE RX Addr</p>
+          <span>
+           <input id="bt-ble-rx-addr-input" type="text" placeholder="12 bites addr">
+         </span>
+        </li>
+
+        <li id="bt-ble-rx-start" class="focusable select-li" name="bt-ble-rx-start">
+          <button>START</button>
+        </li>
+
+        <li id="bt-ble-rx-read" class="focusable select-li" name="bt-ble-rx-read">
+          <button>READ</button>
+        </li>
+
+        <li id="bt-ble-rx-auto" class="focusable select-li" name="bt-ble-rx-auto">
+          <button>AUTO</button>
+        </li>
+
+        <li id="bt-ble-rx-clear" class="focusable select-li" name="bt-ble-rx-clear">
+          <button>CLEAR</button>
+        </li>
+
+        <li id="bt-ble-rx-stop" class="focusable select-li" name="bt-ble-rx-stop">
+          <button>STOP</button>
+        </li>
+
+        <li class="focusable select-li">
+          <p>TIME</p><p>RSSI</p><p>PER</p><p>BER</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wifi" role="region">
+  <gaia-header><h1>WiFi</h1></gaia-header>
+  <div id="wifi-content" class="content" tabindex="1">
+    <div id="wifi-menu" class="view hidden">
+      <ul>
+        <li class="focusable select-li" name="start-wifi-service">
+          <button>START WIFI SERVICE</button>
+        </li>
+
+        <li class="focusable select-li" name="stop-wifi-service">
+          <button>STOP WIFI SERVICE</button>
+        </li>
+
+        <li class="checkbox-li focusable" name="wf-tx">
+          <label class="pack-checkbox">
+            <span>
+            <div>TX</div>
+            </span>
+          </label>
+        </li>
+
+        <li class="checkbox-li focusable" name="wf-rx">
+          <label class="pack-checkbox">
+            <span>
+            <div>RX</div>
+            </span>
+          </label>
+        </li>
+
+        <li class="checkbox-li focusable" name="wf-reg-wr">
+          <label class="pack-checkbox">
+            <span>
+            <div>REG_WR</div>
+            </span>
+          </label>
+        </li>
+
+        <li class="checkbox-li focusable" name="wf-disable-power-save-mode">
+          <label class="pack-checkbox">
+            <input id="wf-disable-power-save-mode" type="checkbox" name="wf-disable-power-save-mode"/>
+            <span>
+              <div>Disabled Power Save Mode</div>
+              <small>power save mode enabled</small>
+            </span>
+          </label>
+        </li>
+
+        <li class="checkbox-li focusable" name="wf-adaptive">
+          <label class="pack-checkbox">
+            <input id="wf-adaptive-input" type="checkbox" name="wf-adaptive"/>
+            <span class="label-span">
+              Wifi Adaptive
+            </span>
+          </label>
+        </li>
+
+        <li class="checkbox-li focusable" name="wf-scan-off">
+          <label class="pack-checkbox">
+            <input id="wf-scan-off-input" type="checkbox" name="wf-scan-off"/>
+            <span class="label-span">
+              Wifi Scan Off
+            </span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wifi-tx" role="region">
+  <gaia-header><h1>Wifi TX</h1></gaia-header>
+  <div id="wifi-tx-content" class="content" tabindex="1">
+    <div id="wifi-tx-menu" class="view hidden">
+      <ul>
+        <li id="wf-tx-channel" class="focusable select-li" name="wf-tx-channel">
+          <p>Channel</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="1" selected>channel 1 (2412MHz)</option>
+             <option value="2" >channel 2 (2417MHz)</option>
+             <option value="3" >channel 3 (2422MHz)</option>
+             <option value="4" >channel 4 (2427MHz)</option>
+             <option value="5" >channel 5 (2432MHz)</option>
+             <option value="6" >channel 6 (2437MHz)</option>
+             <option value="7" >channel 7 (2442MHz)</option>
+             <option value="8" >channel 8 (2447MHz)</option>
+             <option value="9" >channel 9 (2452MHz)</option>
+             <option value="10" >channel 10 (2457MHz)</option>
+             <option value="11" >channel 11 (2462MHz)</option>
+             <option value="12" >channel 12 (2467MHz)</option>
+             <option value="13" >channel 13 (2472MHz)</option>
+             <option value="14" >channel 14 (2484MHz)</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-tx-pkt-length" class="focusable select-li" name="wf-tx-pkt-length">
+          <p>Pkt Length</p>
+          <span>
+           <input id="wf-tx-pkt-length-input" type="text" placeholder="64~4095">
+         </span>
+        </li>
+
+        <li id="wf-tx-pkt-cnt" class="focusable select-li" name="wf-tx-pkt-cnt">
+          <p>Pkt cnt</p>
+          <span>
+           <input id="wf-tx-pkt-cnt-input" type="text" placeholder="0~65535">
+         </span>
+        </li>
+
+        <li id="wf-tx-power-level" class="focusable select-li" name="wf-tx-power-level">
+          <p>Power Level</p>
+          <span>
+           <input id="wf-tx-power-level-input" type="text" placeholder="0~127">
+         </span>
+        </li>
+
+        <li id="wf-tx-rate" class="focusable select-li" name="wf-tx-rate">
+          <p>Rate</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="1" selected>1Mbps</option>
+             <option value="2" >2Mbps</option>
+             <option value="5" >5.5Mbps</option>
+             <option value="11" >11Mbps</option>
+             <option value="6" >6Mbps</option>
+             <option value="9" >9Mbps</option>
+             <option value="12" >12Mbps</option>
+             <option value="18" >18Mbps</option>
+             <option value="24" >24Mbps</option>
+             <option value="36" >36Mbps</option>
+             <option value="48" >48Mbps</option>
+             <option value="54" >54Mbps</option>
+             <option value="7" >6.5Mbps</option>
+             <option value="13" >13Mbps</option>
+             <option value="19" >19.5Mbps</option>
+             <option value="26" >26Mbps</option>
+             <option value="39" >39Mbps</option>
+             <option value="52" >52Mbps</option>
+             <option value="58" >58.5Mbps</option>
+             <option value="65" >65Mbps</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-tx-mode" class="focusable select-li" name="wf-tx-mode">
+          <p>Mode</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="0" selected>802.11 pkt</option>
+             <option value="1" >Sin Wave</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-tx-preamble" class="focusable select-li" name="wf-tx-preamble">
+          <p>Preamble</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="0" selected>Normal</option>
+             <option value="1" >CCK Short</option>
+             <option value="2" >802.11n Mixed Mode</option>
+             <option value="3" >802.11n Green Field</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-tx-band-width" class="focusable select-li" name="wf-tx-band-width">
+          <p>Band width</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="0" selected>20MHz</option>
+             <option value="1" >40MHz</option>
+             <option value="2" >80MHz</option>
+             <option value="3" >160MHz</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-tx-guard-interval" class="focusable select-li" name="wf-tx-guard-interval">
+          <p>Guard Interval</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="400" selected>400ns</option>
+             <option value="800" >800ns</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-tx-cw" class="focusable select-li" name="wf-tx-cw">
+          <button>CW</button>
+        </li>
+
+        <li id="wf-tx-go" class="focusable select-li" name="wf-tx-go">
+          <button>GO</button>
+        </li>
+
+        <li id="wf-tx-stop" class="focusable select-li" name="wf-tx-stop">
+          <button>STOP</button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wifi-rx" role="region">
+  <gaia-header><h1>Wifi RX</h1></gaia-header>
+  <div id="wifi-rx-content" class="content" tabindex="1">
+    <div id="wifi-rx-menu" class="view hidden">
+      <ul>
+        <li id="wf-rx-channel" class="focusable select-li" name="wf-rx-channel">
+          <p>Channel</p>
+          <span>
+           <select  data-value-type="string">
+             <option value="1" selected>channel 1 (2412MHz)</option>
+             <option value="2" >channel 2 (2417MHz)</option>
+             <option value="3" >channel 3 (2422MHz)</option>
+             <option value="4" >channel 4 (2427MHz)</option>
+             <option value="5" >channel 5 (2432MHz)</option>
+             <option value="6" >channel 6 (2437MHz)</option>
+             <option value="7" >channel 7 (2442MHz)</option>
+             <option value="8" >channel 8 (2447MHz)</option>
+             <option value="9" >channel 9 (2452MHz)</option>
+             <option value="10" >channel 10 (2457MHz)</option>
+             <option value="11" >channel 11 (2462MHz)</option>
+             <option value="12" >channel 12 (2467MHz)</option>
+             <option value="13" >channel 13 (2472MHz)</option>
+             <option value="14" >channel 14 (2484MHz)</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-rx-test-num" class="focusable select-li" name="wf-rx-test-num">
+          <p>Test Rx Num</p>
+          <span>
+           <input id="wf-rx-test-num-input" type="text" value="0">
+         </span>
+        </li>
+
+        <li id="wf-rx-ok" class="select-li" name="wf-rx-ok">
+          <p>RX Ok:</p>
+        </li>
+
+        <li id="wf-rx-per" class="select-li" name="wf-rx-per">
+          <p>PER:</p>
+        </li>
+
+        <li id="wf-rx-go" class="focusable select-li" name="wf-rx-go">
+          <button>GO</button>
+        </li>
+
+        <li id="wf-rx-stop" class="focusable select-li" name="wf-rx-stop">
+          <button>STOP</button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wifi-reg-wr" role="region">
+  <gaia-header><h1>Wifi REG_WR</h1></gaia-header>
+  <div id="wifi-reg-wr-content" class="content" tabindex="1">
+    <div id="wifi-reg-wr-menu" class="view hidden">
+      <ul>
+        <li id="wf-reg-type" class="focusable select-li" name="wf-reg-type">
+          <p>Type</p>
+          <span>
+           <select id="wifi-reg-type-select" data-value-type="string">
+             <option value="mac" selected>mac</option>
+             <option value="phy0" >phy0</option>
+             <option value="phy1" >phy1</option>
+             <option value="rf" >rf</option>
+           </select>
+         </span>
+        </li>
+
+        <li id="wf-reg-addr" class="focusable select-li" name="wf-reg-addr">
+          <p>Addr</p>
+          <span>
+           <input id="wf-reg-addr-input" type="text" value="0">
+         </span>
+        </li>
+
+        <li id="wf-reg-length" class="select-li" name="wf-reg-length">
+          <p>Length</p>
+          <span>
+           <input id="wf-reg-length-input" type="text" value="1">
+         </span>
+        </li>
+
+        <li id="wf-reg-value" class="focusable select-li" name="wf-reg-value">
+          <p>Value</p>
+          <span>
+           <input id="wf-reg-value-input" type="text" value="0">
+         </span>
+        </li>
+
+        <li id="wf-reg-read" class="focusable select-li" name="wf-reg-read">
+          <button>READ</button>
+        </li>
+
+        <li id="wf-reg-write" class="focusable select-li" name="wf-reg-write">
+          <button>WRITE</button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="fm" role="region">
+  <gaia-header><h1>FM</h1></gaia-header>
+  <div id="fm-content" class="content" tabindex="1">
+    <div id="fm-menu" class="view hidden">
+      <ul>
+        <li class="checkbox-li focusable" name="fm-set-earphone">
+          <label class="pack-checkbox">
+            <span>
+            <div>Set Earphone</div>
+            </span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="fm-test" role="region">
+  <gaia-header><h1>FM</h1></gaia-header>
+  <div id="fm-test-content" class="content" tabindex="1">
+    <div id="fm-test-menu" class="view hidden">
+      <header>Set FM Channel</header>
+      <ul>
+        <li id="fm-channel" class="focusable select-li" name="fm-channel">
+          <input id="fm-channel-input" type="text" placeholder="103.7">
+        </li>
+
+        <li id="fm-channel-set" class="focusable select-li" name="fm-channel-set">
+          <button>CHANNEL SET</button>
+        </li>
+      </ul>
+      <header>Set Earphone Status</header>
+      <ul>
+        <li id="fm-test-earphone-play" class="focusable select-li" name="fm-test-earphone-play">
+          <button>EARPHONE PLAY</button>
+        </li>
+
+        <li id="fm-test-extroverted-play" class="focusable select-li" name="fm-test-extroverted-play">
+          <button>EXTROVERTED</button>
+        </li>
+      </ul>
+      <header>Set Earphone And Extroverted</header>
+      <header>Switch</header>
+      <ul>
+        <li id="fm-test-num" class="focusable select-li" name="fm-test-num">
+          <input id="fm-test-num-input" type="text">
+        </li>
+
+        <li id="fm-test-switch" class="focusable select-li" name="fm-test-switch">
+          <button>START SWITCH</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section id="rf-set" role="region">
+  <div id="rf-set-content" class="content">
+    <ul>
+      <li id="rf-select" class="focusable select-li">
+        <p>Choose RF</p>
+        <span>
+          <select data-value-type="string">
+            <option value="none" selected >none</option>
+            <option value="dual-rf">Primary and Diversity</option>
+            <option value="main-rf">Primary</option>
+            <option value="aux-rf">Diversity</option>
+          </select>
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+</body>
+</html>

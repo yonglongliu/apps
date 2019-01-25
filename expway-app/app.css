@@ -1,0 +1,96 @@
+
+body, table { margin:0; font-family: Arial, Sans serif; font-size:8pt; overflow:hidden; }
+body
+{
+margin: 0;
+background-color:black;
+}
+
+.app_icon
+{
+	width: 32px;
+}
+
+html, body
+{
+  height: 100%;
+  overflow:hidden;
+  background-color:blue;
+}
+
+.tv_status
+{
+	position:absolute; right:0px; top:0px; z-index:10;
+	height:3em; line-height:3em;
+	color:white;
+	padding: 0.5em;
+	text-align:right;
+	vertical-align:middle;
+}
+.lteb_status
+{
+	position:absolute; right:42px; top:0px; z-index:10;
+	height:3em; line-height:3em;
+	color:white;
+	padding: 0.5em;
+	text-align:right;
+	vertical-align:middle;
+}
+
+.notify_msg
+{
+	position:absolute; left:0px; right:0px; bottom:0px; z-index:10; width:100%;
+	height:3em; line-height:3em;
+	background-color:white;
+	color: black;
+	padding: 0.1em;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.video_bg
+{
+	background-color:black;
+	margin:0; padding:0;
+	position:absolute;
+	top:0; left:0; bottom:0; right:0;
+	width:100%; height:100%;
+	overflow:hidden;
+}
+
+/*.helper
+{
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	background: blue;
+}*/
+
+.centerframe
+{
+	width:100%; height:100%;
+	/*position:absolute;*/ margin: 0;
+	top:0; left:0; bottom:0; right:0;
+	/*overflow:hidden;*/
+	text-align:center;
+	vertical-align: middle;
+	white-space: nowrap;
+	/*font: 0/0 a;*/
+	/*background: yellow;*/
+	color: white;
+}
+
+.message
+{
+	position:absolute; margin: auto;
+	width:80%; height:50%; line-height:50%;
+	top:0; left:0; bottom:0; right:0;
+	background:#00ff88; color:white;
+	text-align:center;
+}
+.message span
+{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}

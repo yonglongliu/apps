@@ -1,0 +1,64 @@
+{
+  "fullscreen": true,
+  "name": "Auto Slt",
+  "role": "system",
+  "user": "engineer",
+  "default_locale": "en-US",
+  "icons": {
+    "84": "/style/icons/settings_84.png"
+  },
+  "orientation": "portrait-primary",
+  "description": "Auto Slt",
+  "launch_path": "/index.html",
+  "activities": {
+    "autoslt": {
+      "returnValue": false,
+      "disposition": "window"
+    }
+  },
+  "type": "certified",
+  "permissions": {
+    "geolocation-noprompt": {},
+    "jrdextension": {},
+    "power": {},
+    "wifi-manage": {},
+    "settings": {
+      "access": "readwrite"
+    },
+    "nfc": {},
+    "bluetooth": {},
+    "telephony": {},
+    "camera": {},
+    "fmradio": {},
+    "mobileconnection": {},
+    "tcp-socket":{},
+    "audio-channel-content": {},
+    "mmi-test": {},
+    "flashlight":{},
+    "storage":{ "access": "readwrite" },
+    "device-storage:pictures":{ "access": "readonly" },
+    "device-storage:music":{ "access": "readonly" },
+    "device-storage:videos":{ "access": "readonly" },
+    "device-storage:sdcard":{ "access": "readwrite" },
+    "device-storage:audios":{ "access": "readwrite" },
+    "device-storage:apps":{ "access": "readonly" },
+    "audio-capture":{
+          "description":"Required to capture audio using getUserMedia()"
+    },
+    "video-capture":{
+             "description":"Required to capture video using getUserMedia()"
+    },
+    "volumemanager": {},
+    "webapps-manage":{}
+  },
+  "locales": {
+    "en-US": {
+      "name": "Auto Slt",
+      "description": "Auto Slt"
+    }
+  },
+  "developer": {
+    "url": "https://github.com/mozilla-b2g/gaia",
+    "name": "The Gaia Team"
+  }
+}

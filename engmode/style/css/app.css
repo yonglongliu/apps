@@ -1,0 +1,520 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul > li {
+  height: 6rem;
+  overflow: hidden;
+}
+
+ul > li.large-li {
+  height: auto;
+}
+
+ul > li > p {
+  line-height: 6rem;
+  margin: 0 1rem;
+  width: 100%;
+}
+
+header {
+  font-size: 1.4rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  color: var(--color-gs70);
+  background-color: var(--color-gs10);
+  padding: 0 1rem;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+section[role="region"] {
+  position: absolute;
+  top: var(--statusbar-height);
+  width: 100%;
+  height: calc(100% - var(--statusbar-height));
+  overflow: hidden;
+  visibility: hidden;
+  transform: translateX(+100%);
+  transition: transform .4s ease, visibility .4s ease;
+}
+
+section.current[role="region"] {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+section.previous[role="region"] {
+  transform: translateX(-100%);
+}
+
+.text-area {
+  font-size: 1.4rem;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+/* Calibrate info */
+#version-info-result,
+#phase-check-result,
+#calibrate-info-result {
+  font-size: 1.4rem;
+  overflow: scroll;
+  outline: none;
+  height: 100%;
+}
+
+.text-container {
+  overflow: scroll;
+  width: 100%;
+  position: absolute;
+  height: calc(100% - var(--statusbar-height));
+  bottom: 0;
+}
+
+.button-li {
+  margin: 0.5rem 1rem;
+  height: 3.2rem;
+  text-align: center;
+  background-color: var(--color-gs20);
+  color: var(--color-gs90);
+  overflow: hidden;
+}
+
+.button-li-container{
+  text-align: center;
+  line-height: 3.2rem;
+}
+
+.pack-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 1rem;
+}
+
+.pack-checkbox small{
+  color: #727272;
+}
+
+label.pack-checkbox input {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 0;
+}
+
+label.pack-checkbox input ~ span {
+  line-height: 6rem;
+  width: 100%;
+}
+
+label.pack-checkbox input ~ span>div {
+  margin-top:3rem;
+  line-height:0rem;
+}
+
+label.pack-checkbox input ~ span>small {
+  line-height:3rem;
+}
+
+label.pack-checkbox input ~ span::after {
+  width: 3.2rem;
+  height: 3.2rem;
+  font-family: "gaia-icons";
+  font-size: 3.2rem;
+  color: var(--color-gs45);
+  content: "check-off";
+  position: absolute;
+  right: 1rem;
+}
+
+label.pack-checkbox input:checked ~ span::after {
+  content: "check-on";
+}
+
+.focus label.pack-checkbox input ~ span::after {
+  color: var(--color-gs00);
+}
+
+li#clean-logs label {
+  display: block;
+  line-height: 2.8rem;
+  padding: 0 1rem;
+}
+
+li#clean-logs label span {
+  font-size: 1.3rem;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.select-li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+#no-signal-tx-ul p {
+  font-size: 1.5rem;
+}
+
+#no-signal-ble-tx-ul p {
+  font-size: 1.2rem;
+}
+
+#no-signal-ble-rx-ul p {
+  font-size: 1.5rem;
+}
+
+.select-li > p {
+  line-height: 2;
+  margin-left: 1rem;
+  width: auto;
+}
+
+.select-li > input {
+  margin: 0.5rem;
+  width: 100%;
+  line-height: 2.5;
+}
+
+.select-li > button {
+  line-height: 2.5;
+  margin: 0.5rem;
+  width:100%;
+  line-height: 2.5;
+  text-align: center;
+}
+
+.select-li > span {
+  margin: 1rem 1rem 1rem 0;
+  width: 35%;
+  padding-right: 1rem;
+}
+
+.select-li > span > input{
+  width: 100%;
+}
+
+gaia-tabs {
+  height: 8.4% !important;
+  color: var(--color-gs45);
+  background: var(--color-iota) !important;
+  position: relative !important;
+  padding-bottom: 0.1rem !important
+}
+
+gaia-tabs a {
+  margin-left: 0.5rem !important;
+}
+
+gaia-tabs > .selected {
+  font-weight: 700;
+}
+
+gaia-tabs[underline="child"] > .selected > :after {
+  margin-bottom: 0.1rem;
+}
+
+div.content-list {
+  padding: 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+/* version info */
+#version-info-result {
+  width: 100%;
+  hight: 100%;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
+#version-info-result > label{
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1.7rem;
+  background-color: var(--color-gs20);
+  text-align: center;
+}
+
+#version-info-result > div {
+  width: 100%;
+  hight: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#version-info-result > div > label {
+  width: 100%;
+  height: 2rem;
+  font-size: 1.5rem;
+  background-color: var(--color-gs10);
+}
+
+#version-info-result > div > span {
+  width: 100%;
+  height: auto;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.sgps-tabpage li {
+  height: 4.8rem;
+  padding: 0 .5rem;
+}
+
+.sgps-tabpage li > label {
+  line-height: 4.8rem;
+  font-size: 1.4rem;
+}
+
+.sgps-tabpage li > label.p-sec {
+  line-height: unset;
+  font-size: 1.2rem;
+  color: var(--color-gs45);
+}
+
+.sgps-tabpage li.focus > label.p-sec {
+  color: var(--color-gs00);
+}
+
+.sgps-tabpage li > input {
+  height: 2.4rem;
+  width: 15%;
+  float: right;
+  margin: 1rem 0;
+  padding: 0 0.2rem;
+  text-align: right;
+}
+
+.sgps-tabpage li > select {
+  opacity: 0;
+}
+
+div.sgps-buttons button {
+  width: 30%;
+  height: 3rem;
+  margin: 0.3rem;
+}
+
+div.sgps-tabpage,
+div.content-list {
+  overflow: scroll;
+  height: calc(100% - var(--header-height));
+}
+
+.memtest-tabpage li {
+  height: 4.8rem;
+  padding: 0 .5rem;
+}
+
+.memtest-tabpage li > label {
+  line-height: 4.8rem;
+  font-size: 1.4rem;
+}
+
+.memtest-tabpage li > label.p-sec {
+  line-height: unset;
+  font-size: 1.2rem;
+  color: var(--color-gs45);
+}
+
+.memtest-tabpage li.focus > label.p-sec {
+  color: var(--color-gs00);
+}
+
+.memtest-tabpage li > input {
+  height: 2.4rem;
+  width: 15%;
+  float: right;
+  margin: 1rem 0;
+  padding: 0 0.2rem;
+  text-align: right;
+}
+
+.memtest-tabpage li > select {
+  opacity: 0;
+}
+
+div.memtest-buttons button {
+  width: 30%;
+  height: 3rem;
+  margin: 0.3rem;
+}
+
+div.memtest-tabpage,
+div.content-list {
+  overflow: scroll;
+  height: calc(100% - var(--header-height));
+}
+
+div.focus {
+  color: var(--color-gs100);
+  background-color: var(--color-gs00) !important;
+}
+
+#mlog {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.73);
+}
+
+#viewfinder {
+  position: absolute;
+  z-index: 25;
+}
+#memtest-video-control {
+  position: absolute;
+  z-index: 25;
+}
+#centertext {
+  color:orangered;
+  height: auto;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 25;
+  overflow: scroll;
+}
+#mlog-text {
+  height: 260px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#captureButton {
+  position: absolute;
+  font-size: 22px;
+  top: -moz-calc(100% - 34px - 34px - 12px);
+  width: -moz-calc(100% - 20px);
+  height: 68px;
+  left: 10px;
+}
+#memtest-text,#flashtest-text{
+  height: 240px;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+#mem-text,#flash-text{
+  color:red;
+  opacity: 0.5;
+  font-size:15px;
+  width: 100%;
+  position: absolute;
+  z-index: 25;
+  overflow: scroll;
+}
+
+#mlog-menu {
+  opacity: 0.5;
+  width: 100%;
+  background:black;
+  position: absolute;
+  z-index: 30;
+}
+
+#mlog-setting {
+  font-size: 15px;
+  color:lightgrey;
+  opacity: 1;
+  background-color:black;
+  z-index: 25;
+}
+
+#mlog-data {
+  font-size: 15px;
+  text-align: right;
+  opacity: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.91);
+  z-index: 25;
+}
+
+#mlog-switch-lable {
+  color: lightgrey;
+  position: relative;
+  font-size: 15px;
+}
+
+#span-select {
+  width: 100px;
+}
+
+#choose-file {
+  color: lightgrey;
+}
+#choose-fps {
+  color: lightgrey;
+}
+
+.sgps-result-small {
+  float:left;
+  width:8%;
+  height: auto;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.sgps-result {
+  float:left;
+  width:23%;
+  height: auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.sgps-result-large {
+  width:auto;
+  height: auto;
+  font-size: 1.4rem;
+}
